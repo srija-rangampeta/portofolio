@@ -1,0 +1,822 @@
+
+<!DOCTYPE html><html lang="en" class="scroll-smooth"><head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Sarah Jenkins - Product Designer</title>
+
+  
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+
+  <style>
+    .animate-on-scroll-hidden {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .animate-on-scroll-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+<style type="text/tailwindcss">@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(255, 183, 197, 0.3);
+  }
+  
+  /* Robust Animated Grid */
+  .grid-infinite-scroll {
+    position: absolute;
+    /* Large dimensions to cover rotation/movement */
+    width: 200vw;
+    height: 200vh;
+    left: -50%;
+    top: -50%;
+    
+    background-size: 60px 60px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 2px, transparent 2px);
+    
+    /* Gentle 3D perspective that doesn't hide the horizon */
+    transform: perspective(800px) rotateX(20deg) scale(1.2);
+    
+    animation: grid-pan 5s linear infinite;
+  }
+}
+
+/* Define Global Keyframes */
+@keyframes grid-pan {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 60px; /* Matches background-size for seamless loop */
+  }
+}</style><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config = {
+  theme: {
+    extend: {
+      // Add all theme colors here
+      colors: {
+        'brand-primary': '#FFB7C5', // Pink accent
+        'brand-secondary': '#ff9eb2', // Darker pink interaction
+        'neutral-background': '#080808', // Dark background requested
+        'neutral-surface': '#1a1a1a', // Slightly lighter for cards
+        'text-primary': '#ffffff', // White text
+        'text-secondary': '#a0a0a0', // Gray text
+        'text-onPrimary': '#080808', // Black text on pink buttons
+      },
+      // Add all theme fonts here
+      fontFamily: {
+        'primary': ['Playfair Display', 'serif'], // Elegant serif for headings
+        'secondary': ['Inter Tight', 'sans-serif'], // Clean sans for body
+      },
+      // Add other theme values (spacing, radius) here
+      spacing: {
+        's': '16px',
+        'm': '24px',
+        'l': '32px',
+        'xl': '48px',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'md': '8px',
+        'lg': '24px',
+        'full': '9999px',
+      },
+      boxShadow: {
+        'cta': '0 4px 20px rgba(255, 183, 197, 0.4)', // Pink glow
+        'card': '0 20px 40px rgba(0, 0, 0, 0.3)',
+      }
+    }
+  }
+}</script></head>
+
+<body class="font-secondary bg-transparent text-text-primary antialiased selection:bg-brand-primary selection:text-neutral-background overflow-x-hidden">
+
+  <!-- Background Stack -->
+  <!-- 1. Solid Base Color -->
+  <div class="fixed inset-0 bg-neutral-background z-[-3]"></div>
+
+  <!-- 2. Infinite Animated Grid Layer -->
+  <div class="fixed inset-0 z-[-2] overflow-hidden pointer-events-none">
+    <div class="grid-infinite-scroll"></div>
+  </div>
+  
+  <!-- 3. Soft Radial Vignette (keeps grid visible but focuses center) -->
+  <div class="fixed inset-0 z-[-1] bg-[radial-gradient(circle_at_center,transparent_0%,rgba(8,8,8,0.8)_100%)] pointer-events-none"></div>
+
+  <header class="fixed top-0 left-0 right-0 z-50 mix-blend-difference text-white">
+    <nav class="max-w-[1400px] mx-auto px-6 py-8 flex items-center justify-between">
+      <a href="#" class="font-primary text-2xl tracking-tight hover:italic transition-all">
+        Lakshanya krishna G.
+      </a>
+      
+      <div class="hidden md:flex items-center gap-12">
+        <a href="#work" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Home</a>
+        <a href="#work" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Projects</a>
+        <a href="#about" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Experience</a>
+        <a href="#contact" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Skills</a>
+        <a href="#work" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Contact</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white z-50 relative focus:outline-none" aria-label="Toggle Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 transition-transform duration-300">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"></path>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#080808] hidden flex-col items-center justify-center gap-10 opacity-0 transition-opacity duration-300">
+      <a href="#work" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Home</a>
+        <a href="#work" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Projects</a>
+        <a href="#about" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Experience</a>
+        <a href="#contact" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Skills</a>
+        <a href="#work" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Contact</a>
+  </div>
+
+  <main class="min-h-screen"><section class="min-h-[50vh] pt-36 pb-8 px-6 max-w-[1400px] mx-auto flex flex-col justify-end relative">
+  <!-- Background Elements -->
+  <!-- A large blurred gradient orb to add depth -->
+  <div class="absolute top-20 right-0 w-[400px] h-[400px] bg-brand-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+  <!-- The Bento Grid Container -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-3 h-full w-full relative z-10">
+    
+    <!-- Box 1: The Intro / Name (Top Left, Large) -->
+    <div data-animation-on-scroll="" class="md:col-span-8 bg-[#111]/40 border border-white/10 p-6 md:p-8 rounded-sm backdrop-blur-sm flex flex-col justify-between min-h-[220px]">
+      <div class="flex justify-between items-start mb-6">
+         <div class="flex items-center gap-2">
+           <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+           <span class="font-mono text-xs text-text-secondary tracking-widest">Active</span>
+         </div>
+         <span class="font-mono text-xs text-brand-primary border border-brand-primary/30 px-2 py-1 rounded">Learning.Building.Evolving</span>
+      </div>
+      <div>
+        <h1 class="font-primary text-5xl md:text-6xl lg:text-7xl leading-[0.85] text-text-primary tracking-tight">
+          Lakshanya<br>
+          <span class="italic text-brand-primary ml-[0ch] md:ml-[1.5ch]">Krishna</span>
+
+        </h1>
+        <div class="mt-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+           <div class="h-px bg-white/20 flex-1 hidden md:block"></div>
+           <p class="font-secondary text-lg font-light text-text-secondary max-w-md">
+             Java Full Stack Developer crafting scalable digital experiences for the modern web.
+           </p>
+        </div>
+      </div>
+    </div>
+
+<!-- Box 2 : Premium Full Stack Card -->
+<div data-animation-on-scroll=""
+  class="md:col-span-4 relative overflow-hidden rounded-sm border border-white/10 bg-white/[0.03] backdrop-blur-xl min-h-[220px] group p-8 flex flex-col justify-between shadow-[0_0_30px_rgba(255,255,255,0.03)]">
+
+  <!-- Soft Gradient Glow -->
+  <div class="absolute inset-0 bg-gradient-to-br from-white/[0.03] via-transparent to-transparent"></div>
+
+  <!-- Subtle Grid -->
+  <div class="absolute inset-0 opacity-[0.02]"
+    style="background-image:
+      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 42px 42px;">
+  </div>
+
+  <!-- Main Content -->
+  <div class="relative z-10 flex flex-col items-center mt-2">
+
+    <!-- Top Stack Row -->
+    <div class="flex items-center gap-4">
+
+      <!-- React -->
+      <div
+        class="px-6 py-3 rounded-full border border-cyan-400/20 bg-cyan-400/10 text-cyan-200 text-sm backdrop-blur-md shadow-lg hover:scale-105 transition duration-300">
+        React
+      </div>
+
+      <!-- Connection -->
+      <div class="w-10 h-[1px] bg-white/20"></div>
+
+      <!-- Java -->
+      <div
+        class="px-6 py-3 rounded-full border border-orange-400/20 bg-orange-400/10 text-orange-200 text-sm backdrop-blur-md shadow-lg hover:scale-105 transition duration-300">
+        Java
+      </div>
+
+      <!-- Connection -->
+      <div class="w-10 h-[1px] bg-white/20"></div>
+
+      <!-- Spring -->
+      <div
+        class="px-6 py-3 rounded-full border border-green-400/20 bg-green-400/10 text-green-200 text-sm backdrop-blur-md shadow-lg hover:scale-105 transition duration-300">
+        Spring Boot
+      </div>
+
+    </div>
+
+    <!-- Vertical Connector -->
+    <div class="w-[1px] h-8 bg-white/20"></div>
+
+    <!-- MySQL -->
+    <div
+      class="px-6 py-3 rounded-full border border-purple-400/20 bg-purple-400/10 text-purple-200 text-sm backdrop-blur-md shadow-lg hover:scale-105 transition duration-300">
+      MySQL
+    </div>
+
+  </div>
+
+  <!-- Bottom Text -->
+  <div class="relative z-10">
+    <p class="text-white font-primary italic text-3xl leading-none">
+      Designing Logic <br />
+      Into Experience
+    </p>
+  </div>
+
+</div>
+    <!-- Box 3: Expertise / Quotes (Bottom Left) -->
+    <div data-animation-on-scroll="" class="md:col-span-5 bg-[#111]/40 border border-white/10 p-6 rounded-sm backdrop-blur-sm flex flex-col justify-center">
+       <div class="space-y-6">
+         <p class="text-lg md:text-xl text-text-secondary leading-relaxed font-light">
+           "Every another project is,another step <span class="text-white font-normal underline decoration-brand-primary decoration-1 underline-offset-4">forward</span>."
+         </p>
+         <div class="flex items-center gap-4 text-sm text-text-secondary font-mono pt-2">
+            <span>EXP: (have to find some internship)</span>
+         </div>
+       </div>
+    </div>
+
+    <!-- Box 4: Status & CTA (Bottom Middle - Highlight) -->
+    <div data-animation-on-scroll="" class="md:col-span-4 bg-brand-primary border border-brand-primary p-6 rounded-sm flex flex-col justify-between group hover:bg-brand-secondary transition-all cursor-pointer relative overflow-hidden shadow-[0_0_40px_rgba(255,183,197,0.1)] hover:shadow-[0_0_60px_rgba(255,183,197,0.3)]">
+       <!-- Decorative glow -->
+       <div class="absolute -right-12 -top-12 w-48 h-48 bg-white/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+       
+       <div class="relative z-10">
+         <span class="inline-block px-3 py-1 bg-black/10 rounded-full text-xs font-bold uppercase tracking-widest text-text-onPrimary mb-4 backdrop-blur-md">● Open to opportunties</span>
+         <h2 class="font-primary text-3xl md:text-4xl text-text-onPrimary leading-tight">
+           Let's connect <br>& create
+         </h2>
+       </div>
+       <div class="relative z-10 flex justify-end">
+          <svg class="w-12 h-12 text-text-onPrimary transform group-hover:rotate-45 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+       </div>
+       
+       <!-- Make the whole box clickable -->
+       <a href="#contact" class="absolute inset-0 z-20"></a>
+    </div>
+
+    <!-- Box 5: Stats / Data (Bottom Right) -->
+    <div data-animation-on-scroll="" class="md:col-span-3 bg-[#080808] border border-white/10 p-4 rounded-sm flex flex-col justify-center items-center text-center space-y-2 hover:border-brand-primary/50 transition-colors">
+       <span class="block text-5xl font-primary text-white">40<span class="text-brand-primary">+</span></span>
+       <span class="text-xs uppercase tracking-widest text-text-secondary">Projects Shipped</span>
+       <div class="w-12 h-px bg-white/10 my-4"></div>
+       <span class="block text-2xl font-primary text-white">Toronto</span>
+       <span class="text-xs uppercase tracking-widest text-text-secondary">Based</span>
+    </div>
+
+  </div>
+</section>
+<section id="work" class="py-24 px-6 max-w-[1400px] mx-auto border-x border-white/10 bg-[#080808]/40">
+  <div class="border-b border-white/10 pb-12 mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+    <div data-animation-on-scroll="">
+      <span class="text-brand-primary text-sm uppercase tracking-widest mb-4 block">Portfolio</span>
+      <h2 class="font-primary text-5xl md:text-7xl text-text-primary">Selected Work</h2>
+    </div>
+    <a href="#" class="group flex items-center gap-2 text-text-secondary hover:text-brand-primary transition-colors">
+      <span>View Archive</span>
+      <span class="group-hover:translate-x-1 transition-transform">→</span>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 border border-white/10 bg-neutral-surface/10">
+    <!-- Project 1 -->
+    <a href="#" class="group block border-b md:border-b-0 md:border-r border-white/10 p-8 lg:p-12 hover:bg-neutral-surface/30 transition-colors duration-500">
+      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Fintech Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+      </div>
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-primary text-3xl text-text-primary group-hover:text-brand-primary transition-colors">Finance Flow</h3>
+          <span class="border border-white/20 text-xs px-2 py-1 rounded-full text-text-secondary">2023</span>
+        </div>
+        <p class="text-text-secondary font-light">
+          A comprehensive dashboard for institutional investors, simplifying complex data streams into actionable insights.
+        </p>
+        <div class="mt-6 flex gap-2">
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">UX Research</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• UI Design</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Project 2 -->
+    <a href="#" class="group block border-b border-white/10 p-8 lg:p-12 hover:bg-neutral-surface/30 transition-colors duration-500">
+      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1710993012099-07a400b7e6b4?w=600&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z2VzdHVyZSUyMG1vYmlsZXxlbnwwfHwwfHx8MA%3D%3D" alt="Smart Home App" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+      </div>
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-primary text-3xl text-text-primary group-hover:text-brand-primary transition-colors">Lumina</h3>
+          <span class="border border-white/20 text-xs px-2 py-1 rounded-full text-text-secondary">2024</span>
+        </div>
+        <p class="text-text-secondary font-light">
+          Control your environment with a gesture-based mobile interface designed for the next generation of smart homes.
+        </p>
+        <div class="mt-6 flex gap-2">
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">Mobile</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• Prototyping</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Project 3 -->
+    <a href="#" class="group block md:border-r border-white/10 p-8 lg:p-12 hover:bg-neutral-surface/30 transition-colors duration-500">
+      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Design System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+      </div>
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-primary text-3xl text-text-primary group-hover:text-brand-primary transition-colors">Carbon System</h3>
+          <span class="border border-white/20 text-xs px-2 py-1 rounded-full text-text-secondary">Internal</span>
+        </div>
+        <p class="text-text-secondary font-light">
+          A scalable, atomic design system built for speed and consistency across cross-functional teams.
+        </p>
+        <div class="mt-6 flex gap-2">
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">Design Systems</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• Documentation</span>
+        </div>
+      </div>
+    </a>
+
+     <!-- Project 4 -->
+     <a href="#" class="group block p-8 lg:p-12 hover:bg-neutral-surface/30 transition-colors duration-500">
+      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Audio Interface" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+      </div>
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-primary text-3xl text-text-primary group-hover:text-brand-primary transition-colors">Echo</h3>
+          <span class="border border-white/20 text-xs px-2 py-1 rounded-full text-text-secondary">Ongoing</span>
+        </div>
+        <p class="text-text-secondary font-light">
+          Reimagining the digital audio workstation for iPad. Touch-first, intuitive, and professional grade.
+        </p>
+        <div class="mt-6 flex gap-2">
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">iOS</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• Product Strategy</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-32 px-6 max-w-[1400px] mx-auto border-x border-white/10 bg-neutral-background relative">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <!-- Left: Image & Philosophy -->
+    <div data-animation-on-scroll="">
+      <h2 class="font-primary text-5xl md:text-6xl text-text-primary mb-12 leading-tight">
+        The user is the <br> <span class="text-brand-primary italic">only reality.</span>
+      </h2>
+      <div class="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-sm bg-neutral-surface border border-white/10 mx-auto lg:mx-0">
+         <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" class="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700" alt="Portrait">
+         <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+            <p class="text-white font-mono text-sm">Sarah Jenkins — Toronto, CA</p>
+         </div>
+      </div>
+    </div>
+
+    <!-- Right: Bio & Experience -->
+    <div data-animation-on-scroll="" class="flex flex-col justify-center space-y-12">
+      <div class="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
+         <p><span class="text-white font-normal">I'm Sarah</span>, a product designer with over 6 years of experience building digital products for high-growth startups and established tech giants.</p>
+         <p>My philosophy is simple: complexity should be handled by the system, not the user. I bridge the gap between engineering logic and human intuition, ensuring that every interaction feels natural and every pixel serves a purpose.</p>
+      </div>
+      
+      <!-- Experience List -->
+      <div>
+        <h3 class="text-xs uppercase tracking-widest text-brand-primary mb-8 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-brand-primary"></span>
+          Experience
+        </h3>
+        <ul class="space-y-6">
+          <li class="group flex justify-between items-baseline border-b border-white/10 pb-4 hover:border-brand-primary/50 transition-colors">
+            <div>
+              <span class="text-2xl font-primary text-text-primary group-hover:ml-2 transition-all duration-300">Stripe</span>
+              <span class="block text-sm text-text-secondary mt-1">Senior Product Designer</span>
+            </div>
+            <span class="font-mono text-sm text-text-secondary">2021 — Present</span>
+          </li>
+           <li class="group flex justify-between items-baseline border-b border-white/10 pb-4 hover:border-brand-primary/50 transition-colors">
+            <div>
+              <span class="text-2xl font-primary text-text-primary group-hover:ml-2 transition-all duration-300">Shopify</span>
+              <span class="block text-sm text-text-secondary mt-1">Product Designer</span>
+            </div>
+            <span class="font-mono text-sm text-text-secondary">2018 — 2021</span>
+          </li>
+           <li class="group flex justify-between items-baseline border-b border-white/10 pb-4 hover:border-brand-primary/50 transition-colors">
+            <div>
+              <span class="text-2xl font-primary text-text-primary group-hover:ml-2 transition-all duration-300">Freelance</span>
+              <span class="block text-sm text-text-secondary mt-1">UI/UX Consultant</span>
+            </div>
+            <span class="font-mono text-sm text-text-secondary">2016 — 2018</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="pt-4">
+        <a href="#" class="inline-flex items-center gap-2 text-brand-primary hover:text-white transition-colors border-b border-brand-primary hover:border-white pb-1">
+          <span>Read Full Bio in Notion</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-24 px-6 max-w-[1400px] mx-auto border-x border-white/10 bg-neutral-surface/5">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+    <div class="md:col-span-1 border-r border-white/10 pr-6">
+       <h2 class="sticky top-32 text-brand-primary text-2xl font-primary md:text-3xl text-left">Services</h2>
+    </div>
+    
+    <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-12">
+       <div data-animation-on-scroll="" class="space-y-4">
+         <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-brand-primary mb-6">
+            <span class="font-primary font-italic text-2xl">01</span>
+         </div>
+         <h3 class="text-xl font-semibold text-text-primary">Product Strategy</h3>
+         <p class="text-text-secondary font-light leading-relaxed">Defining the 'why' and 'how' before the 'what'. I help teams clarify their vision and roadmap through discovery workshops.</p>
+       </div>
+
+       <div data-animation-on-scroll="" class="space-y-4">
+        <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-brand-primary mb-6">
+           <span class="font-primary font-italic text-2xl">02</span>
+        </div>
+        <h3 class="text-xl font-semibold text-text-primary">UI/UX Design</h3>
+        <p class="text-text-secondary font-light leading-relaxed">Designing pixel-perfect interfaces that delight users while achieving business goals. From wireframes to high-fidelity.</p>
+      </div>
+
+      <div data-animation-on-scroll="" class="space-y-4">
+        <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-brand-primary mb-6">
+           <span class="font-primary font-italic text-2xl">03</span>
+        </div>
+        <h3 class="text-xl font-semibold text-text-primary">Design Systems</h3>
+        <p class="text-text-secondary font-light leading-relaxed">Building scalable libraries in Figma that empower engineering teams to build faster and more consistently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CONNECT SECTION -->
+<section id="contact" class="relative w-full px-6 md:px-12 py-24 overflow-hidden">
+
+  <!-- Main Container -->
+  <div
+    class="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-10 border border-white/10 rounded-sm bg-white/[0.02] backdrop-blur-xl p-8 md:p-14 overflow-hidden">
+
+    <!-- Background Glow -->
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_70%)]">
+    </div>
+
+    <!-- Grid Overlay -->
+    <div class="absolute inset-0 opacity-[0.03]"
+      style="background-image:
+      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 42px 42px;">
+    </div>
+
+    <!-- LEFT SIDE -->
+    <div class="relative z-10 flex flex-col justify-between">
+
+      <!-- Small Label -->
+      <div>
+        <p class="text-pink-300 uppercase tracking-[0.25em] text-sm">
+          Connect
+        </p>
+
+        <div class="w-12 h-[1px] bg-pink-300 mt-4 mb-10"></div>
+
+        <!-- Heading -->
+        <h2 class="text-white text-6xl md:text-7xl leading-[0.95] font-primary">
+          Let’s Connect
+          <span class="block italic text-pink-300">
+            & Grow
+          </span>
+        </h2>
+
+        <!-- Description -->
+        <p class="text-white/60 text-lg leading-relaxed mt-10 max-w-lg">
+          Open to internships, collaborations, and opportunities that challenge
+          me to grow as a developer.
+        </p>
+      </div>
+
+      <!-- Current Focus Card -->
+      <div
+        class="mt-16 border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
+
+        <p class="text-green-400 text-xs uppercase tracking-[0.2em] mb-4">
+          ● Currently Focused On
+        </p>
+
+        <p class="text-white text-xl">
+          Java Full Stack Development
+        </p>
+
+        <p class="text-white/50 mt-4 leading-relaxed">
+          AWS • System Design • Clean Architecture
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="relative z-10">
+
+      <!-- Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+        <!-- LinkedIn -->
+        <a href="#"
+          class="group border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 hover:border-cyan-400/30 hover:-translate-y-1 transition duration-300 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
+
+          <div class="flex justify-between items-start">
+            <div
+              class="w-14 h-14 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-cyan-300 text-2xl">
+              in
+            </div>
+
+            <span class="text-white/40 text-xl">↗</span>
+          </div>
+
+          <div class="mt-10">
+            <h3 class="text-white text-2xl">
+              LinkedIn
+            </h3>
+
+            <p class="text-white/50 mt-2">
+              Professional Journey
+            </p>
+          </div>
+
+        </a>
+
+        <!-- GitHub -->
+        <a href="#"
+          class="group border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 hover:border-purple-400/30 hover:-translate-y-1 transition duration-300 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
+
+          <div class="flex justify-between items-start">
+            <div
+              class="w-14 h-14 rounded-xl bg-purple-400/10 border border-purple-400/20 flex items-center justify-center text-purple-300 text-2xl">
+              ◎
+            </div>
+
+            <span class="text-white/40 text-xl">↗</span>
+          </div>
+
+          <div class="mt-10">
+            <h3 class="text-white text-2xl">
+              GitHub
+            </h3>
+
+            <p class="text-white/50 mt-2">
+              Code & Projects
+            </p>
+          </div>
+
+        </a>
+
+        <!-- Resume -->
+        <a href="#"
+          class="group border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 hover:border-pink-400/30 hover:-translate-y-1 transition duration-300 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
+
+          <div class="flex justify-between items-start">
+            <div
+              class="w-14 h-14 rounded-xl bg-pink-400/10 border border-pink-400/20 flex items-center justify-center text-pink-300 text-2xl">
+              ▣
+            </div>
+
+            <span class="text-white/40 text-xl">↗</span>
+          </div>
+
+          <div class="mt-10">
+            <h3 class="text-white text-2xl">
+              Resume
+            </h3>
+
+            <p class="text-white/50 mt-2">
+              Experience Snapshot
+            </p>
+          </div>
+
+        </a>
+
+        <!-- LeetCode -->
+        <a href="#"
+          class="group border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 hover:border-orange-400/30 hover:-translate-y-1 transition duration-300 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
+
+          <div class="flex justify-between items-start">
+            <div
+              class="w-14 h-14 rounded-xl bg-orange-400/10 border border-orange-400/20 flex items-center justify-center text-orange-300 text-2xl">
+              &lt;/&gt;
+            </div>
+
+            <span class="text-white/40 text-xl">↗</span>
+          </div>
+
+          <div class="mt-10">
+            <h3 class="text-white text-2xl">
+              LeetCode
+            </h3>
+
+            <p class="text-white/50 mt-2">
+              Problem Solving
+            </p>
+          </div>
+
+        </a>
+
+        <!-- Email -->
+        <a href="#"
+          class="group border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 hover:border-pink-400/30 hover:-translate-y-1 transition duration-300 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
+
+          <div class="flex justify-between items-start">
+            <div
+              class="w-14 h-14 rounded-xl bg-pink-400/10 border border-pink-400/20 flex items-center justify-center text-pink-300 text-2xl">
+              ✉
+            </div>
+
+            <span class="text-white/40 text-xl">↗</span>
+          </div>
+
+          <div class="mt-10">
+            <h3 class="text-white text-2xl">
+              Email
+            </h3>
+
+            <p class="text-white/50 mt-2">
+              Let’s Connect
+            </p>
+          </div>
+
+        </a>
+
+        <!-- Current Focus -->
+        <div
+          class="group border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 hover:border-green-400/30 transition duration-300 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
+
+          <div class="flex justify-between items-start">
+            <div
+              class="w-14 h-14 rounded-xl bg-green-400/10 border border-green-400/20 flex items-center justify-center text-green-300 text-2xl">
+              ◎
+            </div>
+          </div>
+
+          <div class="mt-10">
+            <h3 class="text-white text-2xl">
+              Current Focus
+            </h3>
+
+            <p class="text-white/50 mt-2">
+              What I’m Building
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bottom Quote -->
+      <div class="mt-10 text-center text-white/40 italic text-lg">
+        “Consistent learning. Intentional building. Purposeful growth.”
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+  <footer class="border-t border-white/10 bg-[#080808] pt-16 pb-8 relative z-10">
+    <div class="max-w-[1400px] mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="md:col-span-2 space-y-4">
+                <a href="#" class="font-primary text-3xl tracking-tight text-white hover:italic transition-all inline-block hover:text-brand-primary">Sarah J.</a>
+                <p class="text-text-secondary max-w-sm font-light leading-relaxed">
+                    Product Designer crafting digital experiences that bridge the gap between human intuition and engineering logic.
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-semibold mb-6 text-sm uppercase tracking-widest text-brand-primary">Sitemap</h4>
+                <div class="flex flex-col gap-3">
+                    <a href="#work" class="text-text-secondary hover:text-white transition-colors text-sm">Selected Work</a>
+                    <a href="#about" class="text-text-secondary hover:text-white transition-colors text-sm">About</a>
+                    <a href="#contact" class="text-text-secondary hover:text-white transition-colors text-sm">Contact</a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold mb-6 text-sm uppercase tracking-widest text-brand-primary">Connect</h4>
+                <div class="flex flex-col gap-3">
+                    <a href="#" class="text-text-secondary hover:text-white transition-colors text-sm">LinkedIn</a>
+                    <a href="#" class="text-text-secondary hover:text-white transition-colors text-sm">Twitter / X</a>
+                    <a href="#" class="text-text-secondary hover:text-white transition-colors text-sm">Instagram</a>
+                    <a href="mailto:hello@sarahjenkins.design" class="text-text-secondary hover:text-white transition-colors text-sm">Email</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-secondary/60 uppercase tracking-widest">
+            <p>© 2024 Sarah Jenkins Design.</p>
+            <p>Toronto, Canada</p>
+        </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Menu Logic
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileIcon = mobileBtn.querySelector('svg path');
+      let isMenuOpen = false;
+
+      mobileBtn.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+          // Open Menu
+          mobileMenu.classList.remove('hidden');
+          mobileMenu.classList.add('flex');
+          // Delay to allow display:flex to apply before transition
+          setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+          
+          // Change Icon to X
+          mobileIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+          document.body.style.overflow = 'hidden';
+        } else {
+          // Close Menu
+          mobileMenu.classList.add('opacity-0');
+          setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+          }, 300);
+          
+          // Change Icon back
+          mobileIcon.setAttribute('d', 'M3.75 9h16.5m-16.5 6.75h16.5');
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Close menu when clicking a link
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          isMenuOpen = false;
+          mobileMenu.classList.add('opacity-0');
+          setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+          }, 300);
+          mobileIcon.setAttribute('d', 'M3.75 9h16.5m-16.5 6.75h16.5');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // Simple Scroll Reveal
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-on-scroll-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('[data-animation-on-scroll]').forEach(el => {
+        el.classList.add('animate-on-scroll-hidden');
+        observer.observe(el);
+      });
+    });
+  </script>
+
+
+</body></html>
