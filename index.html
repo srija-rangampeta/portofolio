@@ -1,16 +1,37 @@
-
 <!DOCTYPE html><html lang="en" class="scroll-smooth"><head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Lakshanya Krishna - Java Full Stack Developer</title>
-
-  
+  <meta name="description" content="Garigapati Lakshanya Krishna — Java Full Stack Developer crafting scalable digital experiences. Portfolio showcasing projects in Java, Spring Boot, React, and AWS.">
+  <meta name="keywords" content="Java Full Stack Developer, Spring Boot, React, AWS, Portfolio, Lakshanya Krishna, Toronto">
+  <meta name="author" content="Garigapati Lakshanya Krishna">
+  <meta property="og:title" content="Lakshanya Krishna - Java Full Stack Developer">
+  <meta property="og:description" content="Java Full Stack Developer crafting scalable digital experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lakshanya.dev">
+  <meta name="theme-color" content="#080808">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👩‍💻</text></svg>">
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #080808;
+      --surface: #1a1a1a;
+      --text: #ffffff;
+      --text-sec: #a0a0a0;
+      --border: rgba(255,255,255,0.1);
+    }
+    .light {
+      --bg: #f5f5f0;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --text-sec: #666666;
+      --border: rgba(0,0,0,0.1);
+    }
+    body { background-color: var(--bg); color: var(--text); transition: background-color 0.4s, color 0.4s; }
     .animate-on-scroll-hidden {
       opacity: 0;
       transform: translateY(30px);
@@ -20,64 +41,95 @@
       opacity: 1;
       transform: translateY(0);
     }
+    .grid-infinite-scroll {
+      position: absolute;
+      width: 200vw;
+      height: 200vh;
+      left: -50%;
+      top: -50%;
+      background-size: 60px 60px;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.2) 2px, transparent 2px),
+        linear-gradient(to bottom, rgba(255,255,255,0.2) 2px, transparent 2px);
+      transform: perspective(800px) rotateX(20deg) scale(1.2);
+      animation: grid-pan 5s linear infinite;
+      opacity: 0.6;
+    }
+    .light .grid-infinite-scroll {
+      background-image:
+        linear-gradient(to right, rgba(0,0,0,0.08) 2px, transparent 2px),
+        linear-gradient(to bottom, rgba(0,0,0,0.08) 2px, transparent 2px);
+    }
+    @keyframes grid-pan {
+      0% { background-position: 0 0; }
+      100% { background-position: 60px 60px; }
+    }
+    .typing-cursor::after {
+      content: '|';
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: all 0.3s;
+    }
+    .theme-toggle:hover {
+      border-color: #FFB7C5;
+    }
+    .filter-btn.active {
+      background: #FFB7C5;
+      color: #080808;
+    }
+    .project-card {
+      transition: opacity 0.4s, transform 0.4s;
+    }
+    .project-card.hidden-filter {
+      display: none;
+    }
+    @media (max-width: 767px) {
+      .grid-infinite-scroll {
+        opacity: 0.3;
+      }
+    }
   </style>
-<style type="text/tailwindcss">@tailwind base;
+  <style type="text/tailwindcss">@tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer utilities {
   .text-shadow-glow {
     text-shadow: 0 0 20px rgba(255, 183, 197, 0.3);
   }
-  
-  /* Robust Animated Grid */
-  .grid-infinite-scroll {
-    position: absolute;
-    /* Large dimensions to cover rotation/movement */
-    width: 200vw;
-    height: 200vh;
-    left: -50%;
-    top: -50%;
-    
-    background-size: 60px 60px;
-    background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 2px, transparent 2px);
-    
-    /* Gentle 3D perspective that doesn't hide the horizon */
-    transform: perspective(800px) rotateX(20deg) scale(1.2);
-    
-    animation: grid-pan 5s linear infinite;
-  }
 }
-
-/* Define Global Keyframes */
-@keyframes grid-pan {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 60px 60px; /* Matches background-size for seamless loop */
-  }
-}</style><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config = {
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
   theme: {
     extend: {
-      // Add all theme colors here
       colors: {
-        'brand-primary': '#FFB7C5', // Pink accent
-        'brand-secondary': '#ff9eb2', // Darker pink interaction
-        'neutral-background': '#080808', // Dark background requested
-        'neutral-surface': '#1a1a1a', // Slightly lighter for cards
-        'text-primary': '#ffffff', // White text
-        'text-secondary': '#a0a0a0', // Gray text
-        'text-onPrimary': '#080808', // Black text on pink buttons
+        'brand-primary': '#FFB7C5',
+        'brand-secondary': '#ff9eb2',
+        'neutral-background': '#080808',
+        'neutral-surface': '#1a1a1a',
+        'text-primary': '#ffffff',
+        'text-secondary': '#a0a0a0',
+        'text-onPrimary': '#080808',
       },
-      // Add all theme fonts here
       fontFamily: {
-        'primary': ['Playfair Display', 'serif'], // Elegant serif for headings
-        'secondary': ['Inter Tight', 'sans-serif'], // Clean sans for body
+        'primary': ['Playfair Display', 'serif'],
+        'secondary': ['Inter Tight', 'sans-serif'],
       },
-      // Add other theme values (spacing, radius) here
       spacing: {
         's': '16px',
         'm': '24px',
@@ -91,42 +143,37 @@
         'full': '9999px',
       },
       boxShadow: {
-        'cta': '0 4px 20px rgba(255, 183, 197, 0.4)', // Pink glow
+        'cta': '0 4px 20px rgba(255, 183, 197, 0.4)',
         'card': '0 20px 40px rgba(0, 0, 0, 0.3)',
       }
     }
   }
-}</script></head>
+}
+</script>
+</head>
 
-<body class="font-secondary bg-transparent text-text-primary antialiased selection:bg-brand-primary selection:text-neutral-background overflow-x-hidden">
+<body class="font-secondary antialiased selection:bg-brand-primary selection:text-neutral-background overflow-x-hidden">
 
   <!-- Background Stack -->
-  <!-- 1. Solid Base Color -->
-  <div class="fixed inset-0 bg-neutral-background z-[-3]"></div>
-
-  <!-- 2. Infinite Animated Grid Layer -->
+  <div class="fixed inset-0 z-[-3]" style="background-color:var(--bg)"></div>
   <div class="fixed inset-0 z-[-2] overflow-hidden pointer-events-none">
     <div class="grid-infinite-scroll"></div>
   </div>
-  <!-- crtl + shift + ` -->
-  <!-- 3. Soft Radial Vignette (keeps grid visible but focuses center) -->
-  <div class="fixed inset-0 z-[-1] bg-[radial-gradient(circle_at_center,transparent_0%,rgba(8,8,8,0.8)_100%)] pointer-events-none"></div>
+  <div class="fixed inset-0 z-[-1] bg-[radial-gradient(circle_at_center,transparent_0%,rgba(8,8,8,0.8)_100%)] pointer-events-none light:bg-[radial-gradient(circle_at_center,transparent_0%,rgba(245,245,240,0.8)_100%)]"></div>
 
-  <header class="fixed top-0 left-0 right-0 z-50 mix-blend-difference text-white">
+  <header class="fixed top-0 left-0 right-0 z-50" style="mix-blend-mode:difference">
     <nav class="max-w-[1400px] mx-auto px-6 py-8 flex items-center justify-between">
-      <a href="#" class="font-primary text-2xl tracking-tight hover:italic transition-all">
-       Garigapati Lakshanya krishna 
+      <a href="#" class="font-primary text-2xl tracking-tight hover:italic transition-all text-white">
+       Garigapati Lakshanya Krishna
       </a>
-      
-      <div class="hidden md:flex items-center gap-12">
-        <a href="#work" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Home</a>
-        <a href="#work" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Projects</a>
-        <a href="#about" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Experience</a>
-        <a href="#contact" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Skills</a>
-        <a href="#work" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Contact</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#home" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors text-white">Home</a>
+        <a href="#work" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors text-white">Projects</a>
+        <a href="#skills" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors text-white">Skills</a>
+        <a href="#experience" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors text-white">Experience</a>
+        <a href="#contact" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors text-white">Contact</a>
+        <button id="theme-toggle-desktop" class="theme-toggle text-white" aria-label="Toggle theme">🌙</button>
       </div>
-
-      <!-- Mobile Menu Button -->
       <button id="mobile-menu-btn" class="md:hidden text-white z-50 relative focus:outline-none" aria-label="Toggle Menu">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 transition-transform duration-300">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"></path>
@@ -135,133 +182,88 @@
     </nav>
   </header>
 
-  <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#080808] hidden flex-col items-center justify-center gap-10 opacity-0 transition-opacity duration-300">
-      <a href="#work" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Home</a>
-        <a href="#work" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Projects</a>
-        <a href="#about" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Experience</a>
-        <a href="#contact" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Skills</a>
-        <a href="#work" class="text-sm uppercase tracking-widest hover:text-brand-primary transition-colors">Contact</a>
+  <div id="mobile-menu" class="fixed inset-0 z-40 flex-col items-center justify-center gap-10 opacity-0 transition-opacity duration-300 pointer-events-none" style="background-color:var(--bg)">
+      <a href="#home" class="mobile-link text-sm uppercase tracking-widest hover:text-brand-primary transition-colors" style="color:var(--text)">Home</a>
+      <a href="#work" class="mobile-link text-sm uppercase tracking-widest hover:text-brand-primary transition-colors" style="color:var(--text)">Projects</a>
+      <a href="#skills" class="mobile-link text-sm uppercase tracking-widest hover:text-brand-primary transition-colors" style="color:var(--text)">Skills</a>
+      <a href="#experience" class="mobile-link text-sm uppercase tracking-widest hover:text-brand-primary transition-colors" style="color:var(--text)">Experience</a>
+      <a href="#contact" class="mobile-link text-sm uppercase tracking-widest hover:text-brand-primary transition-colors" style="color:var(--text)">Contact</a>
+      <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme" style="color:var(--text);border-color:var(--border)">🌙</button>
   </div>
 
-  <main class="min-h-screen"><section class="min-h-[50vh] pt-36 pb-8 px-6 max-w-[1400px] mx-auto flex flex-col justify-end relative">
-  <!-- Background Elements -->
-  <!-- A large blurred gradient orb to add depth -->
+  <main class="min-h-screen">
+
+  <!-- HOME / HERO -->
+  <section id="home" class="min-h-[50vh] pt-36 pb-8 px-6 max-w-[1400px] mx-auto flex flex-col justify-end relative">
   <div class="absolute top-20 right-0 w-[400px] h-[400px] bg-brand-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
 
-  <!-- The Bento Grid Container -->
   <div class="grid grid-cols-1 md:grid-cols-12 gap-3 h-full w-full relative z-10">
-    
-    <!-- Box 1: The Intro / Name (Top Left, Large) -->
-    <div data-animation-on-scroll="" class="md:col-span-8 bg-[#111]/40 border border-white/10 p-6 md:p-8 rounded-sm backdrop-blur-sm flex flex-col justify-between min-h-[220px]">
+
+    <!-- Box 1: Intro / Name -->
+    <div data-animation-on-scroll class="md:col-span-8 p-6 md:p-8 rounded-sm flex flex-col justify-between min-h-[220px]" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
       <div class="flex justify-between items-start mb-6">
          <div class="flex items-center gap-2">
            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-           <span class="font-mono text-xs text-text-secondary tracking-widest">Active</span>
+           <span class="font-mono text-xs" style="color:var(--text-sec)">Open to Work</span>
          </div>
          <span class="font-mono text-xs text-brand-primary border border-brand-primary/30 px-2 py-1 rounded">Learning.Building.Evolving</span>
       </div>
       <div>
-        <h1 class="font-primary text-5xl md:text-6xl lg:text-7xl leading-[0.85] text-text-primary tracking-tight">
+        <h1 class="font-primary text-5xl md:text-6xl lg:text-7xl leading-[0.85] tracking-tight" style="color:var(--text)">
           Lakshanya<br>
           <span class="italic text-brand-primary ml-[0ch] md:ml-[1.5ch]">Krishna</span>
-
         </h1>
         <div class="mt-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-           <div class="h-px bg-white/20 flex-1 hidden md:block"></div>
-           <p class="font-secondary text-lg font-light text-text-secondary max-w-md">
-             Java Full Stack Developer crafting scalable digital experiences for the modern web.
+           <div class="h-px flex-1 hidden md:block" style="background:var(--border)"></div>
+           <p class="font-secondary text-lg font-light max-w-md" style="color:var(--text-sec)">
+             <span id="typing-text"></span>
            </p>
         </div>
       </div>
     </div>
 
-<!-- Box 2 : Premium Full Stack Card -->
-<div data-animation-on-scroll=""
-  class="md:col-span-4 relative overflow-hidden rounded-sm border border-white/10 bg-white/[0.03] backdrop-blur-xl min-h-[220px] group p-8 flex flex-col justify-between shadow-[0_0_30px_rgba(255,255,255,0.03)]">
-
-  <!-- Soft Gradient Glow -->
-  <div class="absolute inset-0 bg-gradient-to-br from-white/[0.03] via-transparent to-transparent"></div>
-
-  <!-- Subtle Grid -->
-  <div class="absolute inset-0 opacity-[0.02]"
-    style="background-image:
-      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
-      background-size: 42px 42px;">
-  </div>
-
-  <!-- Main Content -->
-  <div class="relative z-10 flex flex-col items-center mt-2">
-
-    <!-- Top Stack Row -->
-    <div class="flex items-center gap-4">
-
-      <!-- React -->
-      <div
-        class="px-6 py-3 rounded-full border border-cyan-400/20 bg-cyan-400/10 text-cyan-200 text-sm backdrop-blur-md shadow-lg hover:scale-105 transition duration-300">
-        React
+    <!-- Box 2: Tech Stack Card -->
+    <div data-animation-on-scroll
+      class="md:col-span-4 relative overflow-hidden rounded-sm min-h-[220px] group p-8 flex flex-col justify-between" style="border:1px solid var(--border);background:rgba(255,255,255,0.03);backdrop-filter:blur(16px)">
+      <div class="absolute inset-0 bg-gradient-to-br from-white/[0.03] via-transparent to-transparent"></div>
+      <div class="absolute inset-0 opacity-[0.02]"
+        style="background-image:linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);background-size:42px 42px">
       </div>
-
-      <!-- Connection -->
-      <div class="w-10 h-[1px] bg-white/20"></div>
-
-      <!-- Java -->
-      <div
-        class="px-6 py-3 rounded-full border border-orange-400/20 bg-orange-400/10 text-orange-200 text-sm backdrop-blur-md shadow-lg hover:scale-105 transition duration-300">
-        Java
+      <div class="relative z-10 flex flex-col items-center mt-2">
+        <div class="flex items-center gap-4">
+          <div class="px-6 py-3 rounded-full border border-cyan-400/20 bg-cyan-400/10 text-cyan-200 text-sm backdrop-blur-md shadow-lg hover:scale-105 transition duration-300">React</div>
+          <div class="w-10 h-[1px]" style="background:var(--border)"></div>
+          <div class="px-6 py-3 rounded-full border border-orange-400/20 bg-orange-400/10 text-orange-200 text-sm backdrop-blur-md shadow-lg hover:scale-105 transition duration-300">Java</div>
+          <div class="w-10 h-[1px]" style="background:var(--border)"></div>
+          <div class="px-6 py-3 rounded-full border border-green-400/20 bg-green-400/10 text-green-200 text-sm backdrop-blur-md shadow-lg hover:scale-105 transition duration-300">Spring Boot</div>
+        </div>
+        <div class="w-[1px] h-8" style="background:var(--border)"></div>
+        <div class="px-6 py-3 rounded-full border border-purple-400/20 bg-purple-400/10 text-purple-200 text-sm backdrop-blur-md shadow-lg hover:scale-105 transition duration-300">MySQL</div>
       </div>
-
-      <!-- Connection -->
-      <div class="w-10 h-[1px] bg-white/20"></div>
-
-      <!-- Spring -->
-      <div
-        class="px-6 py-3 rounded-full border border-green-400/20 bg-green-400/10 text-green-200 text-sm backdrop-blur-md shadow-lg hover:scale-105 transition duration-300">
-        Spring Boot
+      <div class="relative z-10">
+        <p class="font-primary italic text-3xl leading-none text-white">
+          Designing Logic<br>Into Experience
+        </p>
       </div>
-
     </div>
 
-    <!-- Vertical Connector -->
-    <div class="w-[1px] h-8 bg-white/20"></div>
-
-    <!-- MySQL -->
-    <div
-      class="px-6 py-3 rounded-full border border-purple-400/20 bg-purple-400/10 text-purple-200 text-sm backdrop-blur-md shadow-lg hover:scale-105 transition duration-300">
-      MySQL
-    </div>
-
-  </div>
-
-  <!-- Bottom Text -->
-  <div class="relative z-10">
-    <p class="text-white font-primary italic text-3xl leading-none">
-      Designing Logic <br />
-      Into Experience
-    </p>
-  </div>
-
-</div>
-    <!-- Box 3: Expertise / Quotes (Bottom Left) -->
-    <div data-animation-on-scroll="" class="md:col-span-5 bg-[#111]/40 border border-white/10 p-6 rounded-sm backdrop-blur-sm flex flex-col justify-center">
+    <!-- Box 3: Quote -->
+    <div data-animation-on-scroll class="md:col-span-5 p-6 rounded-sm flex flex-col justify-center" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
        <div class="space-y-6">
-         <p class="text-lg md:text-xl text-text-secondary leading-relaxed font-light">
-           "Every another project is,another step <span class="text-white font-normal underline decoration-brand-primary decoration-1 underline-offset-4">forward</span>."
+         <p class="text-lg md:text-xl leading-relaxed font-light" style="color:var(--text-sec)">
+           "Every project is another step <span class="font-normal underline decoration-brand-primary decoration-1 underline-offset-4" style="color:var(--text)">forward</span>."
          </p>
-         <div class="flex items-center gap-4 text-sm text-text-secondary font-mono pt-2">
-            <span>EXP: (have to find some internship)</span>
+         <div class="flex items-center gap-4 text-sm font-mono pt-2" style="color:var(--text-sec)">
+            <span>EXP: Seeking Internship Opportunities</span>
          </div>
        </div>
     </div>
 
-    <!-- Box 4: Status & CTA (Bottom Middle - Highlight) -->
-    <div data-animation-on-scroll="" class="md:col-span-4 bg-brand-primary border border-brand-primary p-6 rounded-sm flex flex-col justify-between group hover:bg-brand-secondary transition-all cursor-pointer relative overflow-hidden shadow-[0_0_40px_rgba(255,183,197,0.1)] hover:shadow-[0_0_60px_rgba(255,183,197,0.3)]">
-       <!-- Decorative glow -->
+    <!-- Box 4: CTA -->
+    <div data-animation-on-scroll class="md:col-span-4 bg-brand-primary border border-brand-primary p-6 rounded-sm flex flex-col justify-between group hover:bg-brand-secondary transition-all cursor-pointer relative overflow-hidden">
        <div class="absolute -right-12 -top-12 w-48 h-48 bg-white/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-       
        <div class="relative z-10">
-         <span class="inline-block px-3 py-1 bg-black/10 rounded-full text-xs font-bold uppercase tracking-widest text-text-onPrimary mb-4 backdrop-blur-md">● Open to opportunties</span>
+         <span class="inline-block px-3 py-1 bg-black/10 rounded-full text-xs font-bold uppercase tracking-widest text-text-onPrimary mb-4 backdrop-blur-md">● Open to opportunities</span>
          <h2 class="font-primary text-3xl md:text-4xl text-text-onPrimary leading-tight">
            Let's connect <br>& create
          </h2>
@@ -269,554 +271,573 @@
        <div class="relative z-10 flex justify-end">
           <svg class="w-12 h-12 text-text-onPrimary transform group-hover:rotate-45 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
        </div>
-       
-       <!-- Make the whole box clickable -->
        <a href="#contact" class="absolute inset-0 z-20"></a>
     </div>
 
-    <!-- Box 5: Stats / Data (Bottom Right) -->
-    <div data-animation-on-scroll="" class="md:col-span-3 bg-[#080808] border border-white/10 p-4 rounded-sm flex flex-col justify-center items-center text-center space-y-2 hover:border-brand-primary/50 transition-colors">
-       <span class="block text-5xl font-primary text-white">40<span class="text-brand-primary">+</span></span>
-       <span class="text-xs uppercase tracking-widest text-text-secondary">Projects Shipped</span>
-       <div class="w-12 h-px bg-white/10 my-4"></div>
-       <span class="block text-2xl font-primary text-white">Toronto</span>
-       <span class="text-xs uppercase tracking-widest text-text-secondary">Based</span>
+    <!-- Box 5: Stats -->
+    <div data-animation-on-scroll class="p-4 rounded-sm flex flex-col justify-center items-center text-center space-y-2 hover:border-brand-primary/50 transition-colors" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border)">
+       <span class="block text-5xl font-primary" style="color:var(--text)">40<span class="text-brand-primary">+</span></span>
+       <span class="text-xs uppercase tracking-widest" style="color:var(--text-sec)">Commits This Year</span>
+       <div class="w-12 h-px my-4" style="background:var(--border)"></div>
+       <span class="block text-2xl font-primary" style="color:var(--text)">Toronto</span>
+       <span class="text-xs uppercase tracking-widest" style="color:var(--text-sec)">Based</span>
     </div>
 
   </div>
 </section>
-<section id="work" class="py-24 px-6 max-w-[1400px] mx-auto border-x border-white/10 bg-[#080808]/40">
-  <div class="border-b border-white/10 pb-12 mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
-    <div data-animation-on-scroll="">
+
+<!-- WORK / PROJECTS -->
+<section id="work" class="py-24 px-6 max-w-[1400px] mx-auto" style="border-left:1px solid var(--border);border-right:1px solid var(--border)">
+  <div class="pb-12 mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-6" style="border-bottom:1px solid var(--border)">
+    <div data-animation-on-scroll>
       <span class="text-brand-primary text-sm uppercase tracking-widest mb-4 block">Portfolio</span>
-      <h2 class="font-primary text-5xl md:text-7xl text-text-primary">Selected Work</h2>
+      <h2 class="font-primary text-5xl md:text-7xl" style="color:var(--text)">Selected Projects</h2>
     </div>
-    <a href="#" class="group flex items-center gap-2 text-text-secondary hover:text-brand-primary transition-colors">
-      <span>View Archive</span>
-      <span class="group-hover:translate-x-1 transition-transform">→</span>
-    </a>
+    <div class="flex flex-wrap gap-2">
+      <button data-filter="all" class="filter-btn active text-xs uppercase tracking-widest px-4 py-2 rounded-full border transition-all" style="border-color:var(--border);color:var(--text-sec)">All</button>
+      <button data-filter="fullstack" class="filter-btn text-xs uppercase tracking-widest px-4 py-2 rounded-full border transition-all" style="border-color:var(--border);color:var(--text-sec)">Full Stack</button>
+      <button data-filter="backend" class="filter-btn text-xs uppercase tracking-widest px-4 py-2 rounded-full border transition-all" style="border-color:var(--border);color:var(--text-sec)">Backend</button>
+      <button data-filter="frontend" class="filter-btn text-xs uppercase tracking-widest px-4 py-2 rounded-full border transition-all" style="border-color:var(--border);color:var(--text-sec)">Frontend</button>
+    </div>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 border border-white/10 bg-neutral-surface/10">
-    <!-- Project 1 -->
-    <a href="#" class="group block border-b md:border-b-0 md:border-r border-white/10 p-8 lg:p-12 hover:bg-neutral-surface/30 transition-colors duration-500">
-      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3]">
-        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Fintech Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+  <div class="grid grid-cols-1 md:grid-cols-2" style="border:1px solid var(--border)">
+
+    <!-- Project 1: Full Stack -->
+    <a href="#" class="project-card group block border-b md:border-b-0 md:border-r p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)" data-category="fullstack">
+      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3] bg-neutral-surface/50 flex items-center justify-center">
+        <span class="text-6xl opacity-20 font-primary">💳</span>
         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
       </div>
       <div>
         <div class="flex items-center justify-between mb-4">
-          <h3 class="font-primary text-3xl text-text-primary group-hover:text-brand-primary transition-colors">Finance Flow</h3>
-          <span class="border border-white/20 text-xs px-2 py-1 rounded-full text-text-secondary">2023</span>
+          <h3 class="font-primary text-3xl group-hover:text-brand-primary transition-colors" style="color:var(--text)">Expense Tracker</h3>
+          <span class="text-xs px-2 py-1 rounded-full" style="border:1px solid var(--border);color:var(--text-sec)">2025</span>
         </div>
-        <p class="text-text-secondary font-light">
-          A comprehensive dashboard for institutional investors, simplifying complex data streams into actionable insights.
+        <p style="color:var(--text-sec)" class="font-light">
+          Full-stack expense management app with Spring Boot REST API, React dashboard, JWT auth, and MySQL persistence.
         </p>
-        <div class="mt-6 flex gap-2">
-          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">UX Research</span>
-          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• UI Design</span>
+        <div class="mt-6 flex gap-2 flex-wrap">
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">Spring Boot</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• React</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• MySQL</span>
         </div>
       </div>
     </a>
 
-    <!-- Project 2 -->
-    <a href="#" class="group block border-b border-white/10 p-8 lg:p-12 hover:bg-neutral-surface/30 transition-colors duration-500">
-      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3]">
-        <img src="https://images.unsplash.com/photo-1710993012099-07a400b7e6b4?w=600&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z2VzdHVyZSUyMG1vYmlsZXxlbnwwfHwwfHx8MA%3D%3D" alt="Smart Home App" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+    <!-- Project 2: Backend -->
+    <a href="#" class="project-card group block border-b p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)" data-category="backend">
+      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3] bg-neutral-surface/50 flex items-center justify-center">
+        <span class="text-6xl opacity-20 font-primary">🔧</span>
         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
       </div>
       <div>
         <div class="flex items-center justify-between mb-4">
-          <h3 class="font-primary text-3xl text-text-primary group-hover:text-brand-primary transition-colors">Lumina</h3>
-          <span class="border border-white/20 text-xs px-2 py-1 rounded-full text-text-secondary">2024</span>
+          <h3 class="font-primary text-3xl group-hover:text-brand-primary transition-colors" style="color:var(--text)">RESTful API Gateway</h3>
+          <span class="text-xs px-2 py-1 rounded-full" style="border:1px solid var(--border);color:var(--text-sec)">2025</span>
         </div>
-        <p class="text-text-secondary font-light">
-          Control your environment with a gesture-based mobile interface designed for the next generation of smart homes.
+        <p style="color:var(--text-sec)" class="font-light">
+          Microservices API gateway built with Spring Cloud Gateway, Eureka service discovery, and centralized auth.
         </p>
-        <div class="mt-6 flex gap-2">
-          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">Mobile</span>
-          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• Prototyping</span>
+        <div class="mt-6 flex gap-2 flex-wrap">
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">Spring Cloud</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• Docker</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• JWT</span>
         </div>
       </div>
     </a>
 
-    <!-- Project 3 -->
-    <a href="#" class="group block md:border-r border-white/10 p-8 lg:p-12 hover:bg-neutral-surface/30 transition-colors duration-500">
-      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3]">
-        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Design System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+    <!-- Project 3: Frontend -->
+    <a href="#" class="project-card group block md:border-r p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)" data-category="frontend">
+      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3] bg-neutral-surface/50 flex items-center justify-center">
+        <span class="text-6xl opacity-20 font-primary">🎨</span>
         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
       </div>
       <div>
         <div class="flex items-center justify-between mb-4">
-          <h3 class="font-primary text-3xl text-text-primary group-hover:text-brand-primary transition-colors">Carbon System</h3>
-          <span class="border border-white/20 text-xs px-2 py-1 rounded-full text-text-secondary">Internal</span>
+          <h3 class="font-primary text-3xl group-hover:text-brand-primary transition-colors" style="color:var(--text)">Component Library</h3>
+          <span class="text-xs px-2 py-1 rounded-full" style="border:1px solid var(--border);color:var(--text-sec)">2024</span>
         </div>
-        <p class="text-text-secondary font-light">
-          A scalable, atomic design system built for speed and consistency across cross-functional teams.
+        <p style="color:var(--text-sec)" class="font-light">
+          Reusable React component library with Storybook documentation, dark mode support, and accessibility-first design.
         </p>
-        <div class="mt-6 flex gap-2">
-          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">Design Systems</span>
-          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• Documentation</span>
+        <div class="mt-6 flex gap-2 flex-wrap">
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">React</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• TypeScript</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• Storybook</span>
         </div>
       </div>
     </a>
 
-     <!-- Project 4 -->
-     <a href="#" class="group block p-8 lg:p-12 hover:bg-neutral-surface/30 transition-colors duration-500">
-      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3]">
-        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Audio Interface" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+    <!-- Project 4: Full Stack -->
+    <a href="#" class="project-card group block p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)" data-category="fullstack">
+      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3] bg-neutral-surface/50 flex items-center justify-center">
+        <span class="text-6xl opacity-20 font-primary">📝</span>
         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
       </div>
       <div>
         <div class="flex items-center justify-between mb-4">
-          <h3 class="font-primary text-3xl text-text-primary group-hover:text-brand-primary transition-colors">Echo</h3>
-          <span class="border border-white/20 text-xs px-2 py-1 rounded-full text-text-secondary">Ongoing</span>
+          <h3 class="font-primary text-3xl group-hover:text-brand-primary transition-colors" style="color:var(--text)">Task Manager</h3>
+          <span class="text-xs px-2 py-1 rounded-full" style="border:1px solid var(--border);color:var(--text-sec)">2024</span>
         </div>
-        <p class="text-text-secondary font-light">
-          Reimagining the digital audio workstation for iPad. Touch-first, intuitive, and professional grade.
+        <p style="color:var(--text-sec)" class="font-light">
+          Kanban-style task manager with drag-and-drop, real-time updates via WebSocket, and Spring Boot backend.
         </p>
-        <div class="mt-6 flex gap-2">
-          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">iOS</span>
-          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• Product Strategy</span>
+        <div class="mt-6 flex gap-2 flex-wrap">
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">WebSocket</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• Spring Boot</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• React</span>
         </div>
       </div>
     </a>
+
   </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="py-32 px-6 max-w-[1400px] mx-auto border-x border-white/10 bg-neutral-background relative">
+<!-- SKILLS -->
+<section id="skills" class="py-24 px-6 max-w-[1400px] mx-auto" style="border-left:1px solid var(--border);border-right:1px solid var(--border)">
+  <div class="pb-12 mb-12" style="border-bottom:1px solid var(--border)">
+    <span class="text-brand-primary text-sm uppercase tracking-widest mb-4 block">Expertise</span>
+    <h2 class="font-primary text-5xl md:text-7xl" style="color:var(--text)">Skills & Tools</h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Languages -->
+    <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
+      <h3 class="font-primary text-2xl mb-6" style="color:var(--text)">Languages</h3>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-4 py-2 rounded-full text-sm border border-orange-400/20 bg-orange-400/10 text-orange-200">Java</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-blue-400/20 bg-blue-400/10 text-blue-200">TypeScript</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-yellow-400/20 bg-yellow-400/10 text-yellow-200">JavaScript</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-green-400/20 bg-green-400/10 text-green-200">SQL</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-purple-400/20 bg-purple-400/10 text-purple-200">HTML/CSS</span>
+      </div>
+    </div>
+
+    <!-- Frameworks -->
+    <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
+      <h3 class="font-primary text-2xl mb-6" style="color:var(--text)">Frameworks</h3>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-4 py-2 rounded-full text-sm border border-green-400/20 bg-green-400/10 text-green-200">Spring Boot</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-cyan-400/20 bg-cyan-400/10 text-cyan-200">React</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-indigo-400/20 bg-indigo-400/10 text-indigo-200">Spring Cloud</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-pink-400/20 bg-pink-400/10 text-pink-200">Tailwind CSS</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-red-400/20 bg-red-400/10 text-red-200">JPA/Hibernate</span>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
+      <h3 class="font-primary text-2xl mb-6" style="color:var(--text)">Tools & Cloud</h3>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-4 py-2 rounded-full text-sm border border-gray-400/20 bg-gray-400/10 text-gray-200">Git</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-orange-400/20 bg-orange-400/10 text-orange-200">AWS</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-blue-400/20 bg-blue-400/10 text-blue-200">Docker</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-teal-400/20 bg-teal-400/10 text-teal-200">MySQL</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-cyan-400/20 bg-cyan-400/10 text-cyan-200">Postman</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-purple-400/20 bg-purple-400/10 text-purple-200">Maven</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="py-24 px-6 max-w-[1400px] mx-auto" style="border-left:1px solid var(--border);border-right:1px solid var(--border)">
+  <div class="pb-12 mb-12" style="border-bottom:1px solid var(--border)">
+    <span class="text-brand-primary text-sm uppercase tracking-widest mb-4 block">Career</span>
+    <h2 class="font-primary text-5xl md:text-7xl" style="color:var(--text)">Experience</h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-primary text-2xl" style="color:var(--text)">Freelance Developer</h3>
+        <span class="font-mono text-xs" style="color:var(--text-sec)">2024 — Present</span>
+      </div>
+      <p class="text-sm mb-2 font-semibold text-brand-primary">Self-Employed</p>
+      <p style="color:var(--text-sec)" class="font-light leading-relaxed">
+        Building full-stack web applications for small businesses. Developed REST APIs, integrated third-party services, and deployed cloud-native solutions on AWS.
+      </p>
+    </div>
+
+    <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-primary text-2xl" style="color:var(--text)">Java Intern</h3>
+        <span class="font-mono text-xs" style="color:var(--text-sec)">2023 — 2024</span>
+      </div>
+      <p class="text-sm mb-2 font-semibold text-brand-primary">Tech Startup (Contract)</p>
+      <p style="color:var(--text-sec)" class="font-light leading-relaxed">
+        Contributed to Spring Boot microservices, wrote unit tests with JUnit, optimized SQL queries, and collaborated on RESTful API design.
+      </p>
+    </div>
+  </div>
+
+  <!-- Education sub-section -->
+  <div class="mt-16">
+    <h3 class="font-primary text-3xl mb-8" style="color:var(--text)">Education</h3>
+    <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h4 class="font-primary text-xl" style="color:var(--text)">Computer Science (expected 2026)</h4>
+          <p class="text-sm mt-1" style="color:var(--text-sec)">University / College, Toronto</p>
+        </div>
+        <span class="font-mono text-xs" style="color:var(--text-sec)">2023 — 2026</span>
+      </div>
+      <p style="color:var(--text-sec)" class="font-light leading-relaxed">
+        Coursework: Data Structures, Algorithms, Database Systems, Software Engineering, Operating Systems.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-24 px-6 max-w-[1400px] mx-auto" style="border-left:1px solid var(--border);border-right:1px solid var(--border)">
+  <div class="pb-12 mb-12" style="border-bottom:1px solid var(--border)">
+    <span class="text-brand-primary text-sm uppercase tracking-widest mb-4 block">Social Proof</span>
+    <h2 class="font-primary text-5xl md:text-7xl" style="color:var(--text)">Kind Words</h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border)">
+      <p class="text-lg leading-relaxed font-light italic mb-6" style="color:var(--text)">"Lakshanya is a quick learner with strong problem-solving skills. Her Spring Boot APIs are clean and well-documented."</p>
+      <div>
+        <p class="text-sm font-semibold" style="color:var(--text)">— Mentor, Tech Incubator</p>
+      </div>
+    </div>
+    <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border)">
+      <p class="text-lg leading-relaxed font-light italic mb-6" style="color:var(--text)">"She brings real enthusiasm to every project. Her React frontends are intuitive and beautifully responsive."</p>
+      <div>
+        <p class="text-sm font-semibold" style="color:var(--text)">— Peer, Hackathon Team</p>
+      </div>
+    </div>
+    <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border)">
+      <p class="text-lg leading-relaxed font-light italic mb-6" style="color:var(--text)">"Reliable, curious, and always willing to go the extra mile. A great collaborator on any full-stack team."</p>
+      <div>
+        <p class="text-sm font-semibold" style="color:var(--text)">— Project Partner</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 px-6 max-w-[1400px] mx-auto" style="border-left:1px solid var(--border);border-right:1px solid var(--border)">
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-    <!-- Left: Image & Philosophy -->
-    <div data-animation-on-scroll="">
-      <h2 class="font-primary text-5xl md:text-6xl text-text-primary mb-12 leading-tight">
-        The user is the <br> <span class="text-brand-primary italic">only reality.</span>
+    <div data-animation-on-scroll>
+      <h2 class="font-primary text-5xl md:text-6xl mb-12 leading-tight" style="color:var(--text)">
+        Code is the <br> <span class="text-brand-primary italic">blueprint.</span>
       </h2>
-      <div class="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-sm bg-neutral-surface border border-white/10 mx-auto lg:mx-0">
-         <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" class="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700" alt="Portrait">
+      <div class="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-sm mx-auto lg:mx-0" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border)">
+         <div class="w-full h-full flex items-center justify-center">
+           <span class="text-8xl opacity-30">👩‍💻</span>
+         </div>
          <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
-            <p class="text-white font-mono text-sm">Sarah Jenkins — Toronto, CA</p>
+            <p class="text-white font-mono text-sm">Lakshanya Krishna — Toronto, CA</p>
          </div>
       </div>
     </div>
 
-    <!-- Right: Bio & Experience -->
-    <div data-animation-on-scroll="" class="flex flex-col justify-center space-y-12">
-      <div class="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
-         <p><span class="text-white font-normal">I'm Sarah</span>, a product designer with over 6 years of experience building digital products for high-growth startups and established tech giants.</p>
-         <p>My philosophy is simple: complexity should be handled by the system, not the user. I bridge the gap between engineering logic and human intuition, ensuring that every interaction feels natural and every pixel serves a purpose.</p>
+    <div data-animation-on-scroll class="flex flex-col justify-center space-y-8">
+      <div class="space-y-6 text-lg leading-relaxed font-light" style="color:var(--text-sec)">
+         <p><span class="font-normal" style="color:var(--text)">I'm Lakshanya</span>, a Java Full Stack Developer passionate about building scalable, maintainable applications that solve real problems. I specialize in Spring Boot microservices and React-based frontends.</p>
+         <p>My approach combines clean architecture with practical UX. I believe great software starts with a solid backend foundation and extends to every pixel the user touches.</p>
       </div>
-      
-      <!-- Experience List -->
-      <div>
-        <h3 class="text-xs uppercase tracking-widest text-brand-primary mb-8 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-brand-primary"></span>
-          Experience
-        </h3>
-        <ul class="space-y-6">
-          <li class="group flex justify-between items-baseline border-b border-white/10 pb-4 hover:border-brand-primary/50 transition-colors">
-            <div>
-              <span class="text-2xl font-primary text-text-primary group-hover:ml-2 transition-all duration-300">Stripe</span>
-              <span class="block text-sm text-text-secondary mt-1">Senior Product Designer</span>
-            </div>
-            <span class="font-mono text-sm text-text-secondary">2021 — Present</span>
-          </li>
-           <li class="group flex justify-between items-baseline border-b border-white/10 pb-4 hover:border-brand-primary/50 transition-colors">
-            <div>
-              <span class="text-2xl font-primary text-text-primary group-hover:ml-2 transition-all duration-300">Shopify</span>
-              <span class="block text-sm text-text-secondary mt-1">Product Designer</span>
-            </div>
-            <span class="font-mono text-sm text-text-secondary">2018 — 2021</span>
-          </li>
-           <li class="group flex justify-between items-baseline border-b border-white/10 pb-4 hover:border-brand-primary/50 transition-colors">
-            <div>
-              <span class="text-2xl font-primary text-text-primary group-hover:ml-2 transition-all duration-300">Freelance</span>
-              <span class="block text-sm text-text-secondary mt-1">UI/UX Consultant</span>
-            </div>
-            <span class="font-mono text-sm text-text-secondary">2016 — 2018</span>
-          </li>
-        </ul>
+      <div class="flex gap-4 pt-4">
+        <span class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider border" style="border-color:var(--border);color:var(--text-sec)">Clean Code</span>
+        <span class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider border" style="border-color:var(--border);color:var(--text-sec)">System Design</span>
+        <span class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider border" style="border-color:var(--border);color:var(--text-sec)">CI/CD</span>
       </div>
-
-      <div class="pt-4">
-        <a href="#" class="inline-flex items-center gap-2 text-brand-primary hover:text-white transition-colors border-b border-brand-primary hover:border-white pb-1">
-          <span>Read Full Bio in Notion</span>
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-        </a>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- Services Section -->
-<section class="py-24 px-6 max-w-[1400px] mx-auto border-x border-white/10 bg-neutral-surface/5">
+<!-- SERVICES -->
+<section class="py-24 px-6 max-w-[1400px] mx-auto" style="border-left:1px solid var(--border);border-right:1px solid var(--border)">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-    <div class="md:col-span-1 border-r border-white/10 pr-6">
-       <h2 class="sticky top-32 text-brand-primary text-2xl font-primary md:text-3xl text-left">Services</h2>
+    <div class="md:col-span-1 pr-6" style="border-right:1px solid var(--border)">
+       <h2 class="sticky top-32 text-brand-primary text-2xl font-primary md:text-3xl text-left">What I Do</h2>
     </div>
-    
     <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-12">
-       <div data-animation-on-scroll="" class="space-y-4">
-         <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-brand-primary mb-6">
-            <span class="font-primary font-italic text-2xl">01</span>
+       <div data-animation-on-scroll class="space-y-4">
+         <div class="w-12 h-12 rounded-full flex items-center justify-center text-brand-primary mb-6" style="background:color-mix(in srgb, var(--surface) 60%, transparent)">
+            <span class="font-primary text-2xl">01</span>
          </div>
-         <h3 class="text-xl font-semibold text-text-primary">Product Strategy</h3>
-         <p class="text-text-secondary font-light leading-relaxed">Defining the 'why' and 'how' before the 'what'. I help teams clarify their vision and roadmap through discovery workshops.</p>
+         <h3 class="text-xl font-semibold" style="color:var(--text)">Full Stack Dev</h3>
+         <p style="color:var(--text-sec)" class="font-light leading-relaxed">End-to-end application development from database schema to responsive UI. Spring Boot + React projects.</p>
        </div>
-
-       <div data-animation-on-scroll="" class="space-y-4">
-        <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-brand-primary mb-6">
-           <span class="font-primary font-italic text-2xl">02</span>
-        </div>
-        <h3 class="text-xl font-semibold text-text-primary">UI/UX Design</h3>
-        <p class="text-text-secondary font-light leading-relaxed">Designing pixel-perfect interfaces that delight users while achieving business goals. From wireframes to high-fidelity.</p>
-      </div>
-
-      <div data-animation-on-scroll="" class="space-y-4">
-        <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-brand-primary mb-6">
-           <span class="font-primary font-italic text-2xl">03</span>
-        </div>
-        <h3 class="text-xl font-semibold text-text-primary">Design Systems</h3>
-        <p class="text-text-secondary font-light leading-relaxed">Building scalable libraries in Figma that empower engineering teams to build faster and more consistently.</p>
-      </div>
+       <div data-animation-on-scroll class="space-y-4">
+         <div class="w-12 h-12 rounded-full flex items-center justify-center text-brand-primary mb-6" style="background:color-mix(in srgb, var(--surface) 60%, transparent)">
+            <span class="font-primary text-2xl">02</span>
+         </div>
+         <h3 class="text-xl font-semibold" style="color:var(--text)">API Design</h3>
+         <p style="color:var(--text-sec)" class="font-light leading-relaxed">RESTful API architecture, OpenAPI documentation, JWT authentication, and microservice integration.</p>
+       </div>
+       <div data-animation-on-scroll class="space-y-4">
+         <div class="w-12 h-12 rounded-full flex items-center justify-center text-brand-primary mb-6" style="background:color-mix(in srgb, var(--surface) 60%, transparent)">
+            <span class="font-primary text-2xl">03</span>
+         </div>
+         <h3 class="text-xl font-semibold" style="color:var(--text)">Cloud Deployment</h3>
+         <p style="color:var(--text-sec)" class="font-light leading-relaxed">AWS-based deployments with Docker containers, CI/CD pipelines, and database-as-a-service configuration.</p>
+       </div>
     </div>
   </div>
 </section>
-<!-- CONNECT SECTION -->
+
+<!-- CONTACT -->
 <section id="contact" class="relative w-full px-6 md:px-12 py-24 overflow-hidden">
-
-  <!-- Main Container -->
-  <div
-    class="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-10 border border-white/10 rounded-sm bg-white/[0.02] backdrop-blur-xl p-8 md:p-14 overflow-hidden">
-
-    <!-- Background Glow -->
-    <div
-      class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_70%)]">
-    </div>
-
-    <!-- Grid Overlay -->
+  <div class="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-10 rounded-sm p-8 md:p-14 overflow-hidden" style="border:1px solid var(--border);background:color-mix(in srgb, var(--surface) 10%, transparent);backdrop-filter:blur(16px)">
     <div class="absolute inset-0 opacity-[0.03]"
-      style="background-image:
-      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
-      background-size: 42px 42px;">
+      style="background-image:linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);background-size:42px 42px">
     </div>
 
-    <!-- LEFT SIDE -->
+    <!-- LEFT -->
     <div class="relative z-10 flex flex-col justify-between">
-
-      <!-- Small Label -->
       <div>
-        <p class="text-pink-300 uppercase tracking-[0.25em] text-sm">
-          Connect
-        </p>
-
-        <div class="w-12 h-[1px] bg-pink-300 mt-4 mb-10"></div>
-
-        <!-- Heading -->
-        <h2 class="text-white text-6xl md:text-7xl leading-[0.95] font-primary">
-          Let’s Connect
-          <span class="block italic text-pink-300">
-            & Grow
-          </span>
+        <p class="text-brand-primary uppercase tracking-[0.25em] text-sm">Connect</p>
+        <div class="w-12 h-[1px] bg-brand-primary mt-4 mb-10"></div>
+        <h2 class="text-6xl md:text-7xl leading-[0.95] font-primary" style="color:var(--text)">
+          Let's Connect
+          <span class="block italic text-brand-primary">& Grow</span>
         </h2>
-
-        <!-- Description -->
-        <p class="text-white/60 text-lg leading-relaxed mt-10 max-w-lg">
-          Open to internships, collaborations, and opportunities that challenge
-          me to grow as a developer.
+        <p class="text-lg leading-relaxed mt-10 max-w-lg" style="color:var(--text-sec)">
+          Open to internships, collaborations, and opportunities that challenge me to grow as a developer.
         </p>
       </div>
-
-      <!-- Current Focus Card -->
-      <div
-        class="mt-16 border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
-
-        <p class="text-green-400 text-xs uppercase tracking-[0.2em] mb-4">
-          ● Currently Focused On
-        </p>
-
-        <p class="text-white text-xl">
-          Java Full Stack Development
-        </p>
-
-        <p class="text-white/50 mt-4 leading-relaxed">
-          AWS • System Design • Clean Architecture
-        </p>
-
+      <div class="mt-16 rounded-2xl p-6" style="border:1px solid var(--border);background:color-mix(in srgb, var(--surface) 20%, transparent);backdrop-filter:blur(16px)">
+        <p class="text-green-400 text-xs uppercase tracking-[0.2em] mb-4">● Currently Focused On</p>
+        <p class="text-xl" style="color:var(--text)">Java Full Stack Development</p>
+        <p class="mt-4 leading-relaxed" style="color:var(--text-sec)">AWS • System Design • Clean Architecture</p>
       </div>
-
     </div>
 
-    <!-- RIGHT SIDE -->
-    <div class="relative z-10">
-
-      <!-- Cards Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-
-        <!-- LinkedIn -->
-        <a href="#"
-          class="group border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 hover:border-cyan-400/30 hover:-translate-y-1 transition duration-300 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
-
+    <!-- RIGHT -->
+    <div class="relative z-10 space-y-6">
+      <!-- Social Cards -->
+      <div class="grid grid-cols-2 gap-4">
+        <a href="https://linkedin.com/in/lakshanya-krishna" target="_blank" rel="noopener" class="group rounded-2xl p-5 transition duration-300" style="border:1px solid var(--border);background:color-mix(in srgb, var(--surface) 20%, transparent);backdrop-filter:blur(16px)">
           <div class="flex justify-between items-start">
-            <div
-              class="w-14 h-14 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-cyan-300 text-2xl">
-              in
-            </div>
-
-            <span class="text-white/40 text-xl">↗</span>
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl" style="background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.2);color:#67e8f9">in</div>
+            <span class="text-xl" style="color:var(--text-sec)">↗</span>
           </div>
-
-          <div class="mt-10">
-            <h3 class="text-white text-2xl">
-              LinkedIn
-            </h3>
-
-            <p class="text-white/50 mt-2">
-              Professional Journey
-            </p>
+          <div class="mt-6">
+            <h3 class="text-lg" style="color:var(--text)">LinkedIn</h3>
+            <p class="text-xs mt-1" style="color:var(--text-sec)">Professional Journey</p>
           </div>
-
         </a>
-
-        <!-- GitHub -->
-        <a href="#"
-          class="group border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 hover:border-purple-400/30 hover:-translate-y-1 transition duration-300 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
-
+        <a href="https://github.com/lakshanya-krishna" target="_blank" rel="noopener" class="group rounded-2xl p-5 transition duration-300" style="border:1px solid var(--border);background:color-mix(in srgb, var(--surface) 20%, transparent);backdrop-filter:blur(16px)">
           <div class="flex justify-between items-start">
-            <div
-              class="w-14 h-14 rounded-xl bg-purple-400/10 border border-purple-400/20 flex items-center justify-center text-purple-300 text-2xl">
-              ◎
-            </div>
-
-            <span class="text-white/40 text-xl">↗</span>
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl" style="background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.2);color:#d8b4fe">◎</div>
+            <span class="text-xl" style="color:var(--text-sec)">↗</span>
           </div>
-
-          <div class="mt-10">
-            <h3 class="text-white text-2xl">
-              GitHub
-            </h3>
-
-            <p class="text-white/50 mt-2">
-              Code & Projects
-            </p>
+          <div class="mt-6">
+            <h3 class="text-lg" style="color:var(--text)">GitHub</h3>
+            <p class="text-xs mt-1" style="color:var(--text-sec)">Code & Projects</p>
           </div>
-
         </a>
-
-        <!-- Resume -->
-        <a href="#"
-          class="group border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 hover:border-pink-400/30 hover:-translate-y-1 transition duration-300 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
-
+        <a href="#" class="group rounded-2xl p-5 transition duration-300" style="border:1px solid var(--border);background:color-mix(in srgb, var(--surface) 20%, transparent);backdrop-filter:blur(16px)">
           <div class="flex justify-between items-start">
-            <div
-              class="w-14 h-14 rounded-xl bg-pink-400/10 border border-pink-400/20 flex items-center justify-center text-pink-300 text-2xl">
-              ▣
-            </div>
-
-            <span class="text-white/40 text-xl">↗</span>
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl" style="background:rgba(244,114,182,0.1);border:1px solid rgba(244,114,182,0.2);color:#f9a8d4">▣</div>
+            <span class="text-xl" style="color:var(--text-sec)">↗</span>
           </div>
-
-          <div class="mt-10">
-            <h3 class="text-white text-2xl">
-              Resume
-            </h3>
-
-            <p class="text-white/50 mt-2">
-              Experience Snapshot
-            </p>
+          <div class="mt-6">
+            <h3 class="text-lg" style="color:var(--text)">Resume</h3>
+            <p class="text-xs mt-1" style="color:var(--text-sec)">Download PDF</p>
           </div>
-
         </a>
-
-        <!-- LeetCode -->
-        <a href="#"
-          class="group border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 hover:border-orange-400/30 hover:-translate-y-1 transition duration-300 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
-
+        <a href="https://leetcode.com/lakshanya-krishna" target="_blank" rel="noopener" class="group rounded-2xl p-5 transition duration-300" style="border:1px solid var(--border);background:color-mix(in srgb, var(--surface) 20%, transparent);backdrop-filter:blur(16px)">
           <div class="flex justify-between items-start">
-            <div
-              class="w-14 h-14 rounded-xl bg-orange-400/10 border border-orange-400/20 flex items-center justify-center text-orange-300 text-2xl">
-              &lt;/&gt;
-            </div>
-
-            <span class="text-white/40 text-xl">↗</span>
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl" style="background:rgba(251,146,60,0.1);border:1px solid rgba(251,146,60,0.2);color:#fdba74">&lt;/&gt;</div>
+            <span class="text-xl" style="color:var(--text-sec)">↗</span>
           </div>
-
-          <div class="mt-10">
-            <h3 class="text-white text-2xl">
-              LeetCode
-            </h3>
-
-            <p class="text-white/50 mt-2">
-              Problem Solving
-            </p>
+          <div class="mt-6">
+            <h3 class="text-lg" style="color:var(--text)">LeetCode</h3>
+            <p class="text-xs mt-1" style="color:var(--text-sec)">Problem Solving</p>
           </div>
-
         </a>
-
-        <!-- Email -->
-        <a href="#"
-          class="group border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 hover:border-pink-400/30 hover:-translate-y-1 transition duration-300 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
-
-          <div class="flex justify-between items-start">
-            <div
-              class="w-14 h-14 rounded-xl bg-pink-400/10 border border-pink-400/20 flex items-center justify-center text-pink-300 text-2xl">
-              ✉
-            </div>
-
-            <span class="text-white/40 text-xl">↗</span>
-          </div>
-
-          <div class="mt-10">
-            <h3 class="text-white text-2xl">
-              Email
-            </h3>
-
-            <p class="text-white/50 mt-2">
-              Let’s Connect
-            </p>
-          </div>
-
-        </a>
-
-        <!-- Current Focus -->
-        <div
-          class="group border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-xl p-6 hover:border-green-400/30 transition duration-300 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
-
-          <div class="flex justify-between items-start">
-            <div
-              class="w-14 h-14 rounded-xl bg-green-400/10 border border-green-400/20 flex items-center justify-center text-green-300 text-2xl">
-              ◎
-            </div>
-          </div>
-
-          <div class="mt-10">
-            <h3 class="text-white text-2xl">
-              Current Focus
-            </h3>
-
-            <p class="text-white/50 mt-2">
-              What I’m Building
-            </p>
-          </div>
-
-        </div>
-
       </div>
 
-      <!-- Bottom Quote -->
-      <div class="mt-10 text-center text-white/40 italic text-lg">
+      <!-- Contact Form -->
+      <div class="rounded-2xl p-6" style="border:1px solid var(--border);background:color-mix(in srgb, var(--surface) 20%, transparent);backdrop-filter:blur(16px)">
+        <h3 class="text-lg font-semibold mb-4" style="color:var(--text)">Send a Message</h3>
+        <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 rounded-lg text-sm outline-none transition" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);color:var(--text)">
+            <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 rounded-lg text-sm outline-none transition" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);color:var(--text)">
+          </div>
+          <input type="text" name="subject" placeholder="Subject" class="w-full px-4 py-3 rounded-lg text-sm outline-none transition" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);color:var(--text)">
+          <textarea name="message" rows="4" placeholder="Your Message" required class="w-full px-4 py-3 rounded-lg text-sm outline-none transition resize-none" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);color:var(--text)"></textarea>
+          <button type="submit" class="w-full px-6 py-3 rounded-lg text-sm font-semibold uppercase tracking-widest bg-brand-primary text-text-onPrimary hover:bg-brand-secondary transition-colors">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <div class="text-center italic text-lg" style="color:var(--text-sec)">
         “Consistent learning. Intentional building. Purposeful growth.”
       </div>
-
     </div>
-
   </div>
+</section>
 
 </main>
 
-  <footer class="border-t border-white/10 bg-[#080808] pt-16 pb-8 relative z-10">
-    <div class="max-w-[1400px] mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            <div class="md:col-span-2 space-y-4">
-                <a href="#" class="font-primary text-3xl tracking-tight text-white hover:italic transition-all inline-block hover:text-brand-primary">Sarah J.</a>
-                <p class="text-text-secondary max-w-sm font-light leading-relaxed">
-                    Product Designer crafting digital experiences that bridge the gap between human intuition and engineering logic.
-                </p>
-            </div>
-            
-            <div>
-                <h4 class="text-white font-semibold mb-6 text-sm uppercase tracking-widest text-brand-primary">Sitemap</h4>
-                <div class="flex flex-col gap-3">
-                    <a href="#work" class="text-text-secondary hover:text-white transition-colors text-sm">Selected Work</a>
-                    <a href="#about" class="text-text-secondary hover:text-white transition-colors text-sm">About</a>
-                    <a href="#contact" class="text-text-secondary hover:text-white transition-colors text-sm">Contact</a>
-                </div>
-            </div>
-
-            <div>
-                <h4 class="text-white font-semibold mb-6 text-sm uppercase tracking-widest text-brand-primary">Connect</h4>
-                <div class="flex flex-col gap-3">
-                    <a href="#" class="text-text-secondary hover:text-white transition-colors text-sm">LinkedIn</a>
-                    <a href="#" class="text-text-secondary hover:text-white transition-colors text-sm">Twitter / X</a>
-                    <a href="#" class="text-text-secondary hover:text-white transition-colors text-sm">Instagram</a>
-                    <a href="mailto:hello@sarahjenkins.design" class="text-text-secondary hover:text-white transition-colors text-sm">Email</a>
-                </div>
-            </div>
+<footer class="pt-16 pb-8 relative z-10" style="border-top:1px solid var(--border)">
+  <div class="max-w-[1400px] mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <div class="md:col-span-2 space-y-4">
+        <a href="#" class="font-primary text-3xl tracking-tight hover:italic transition-all inline-block hover:text-brand-primary" style="color:var(--text)">Lakshanya K.</a>
+        <p class="max-w-sm font-light leading-relaxed" style="color:var(--text-sec)">
+          Java Full Stack Developer crafting scalable digital experiences for the modern web.
+        </p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-6 text-sm uppercase tracking-widest text-brand-primary">Sitemap</h4>
+        <div class="flex flex-col gap-3">
+          <a href="#work" class="transition-colors text-sm hover:text-brand-primary" style="color:var(--text-sec)">Projects</a>
+          <a href="#skills" class="transition-colors text-sm hover:text-brand-primary" style="color:var(--text-sec)">Skills</a>
+          <a href="#experience" class="transition-colors text-sm hover:text-brand-primary" style="color:var(--text-sec)">Experience</a>
+          <a href="#contact" class="transition-colors text-sm hover:text-brand-primary" style="color:var(--text-sec)">Contact</a>
         </div>
-
-        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-secondary/60 uppercase tracking-widest">
-            <p>© 2024 Sarah Jenkins Design.</p>
-            <p>Toronto, Canada</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-6 text-sm uppercase tracking-widest text-brand-primary">Connect</h4>
+        <div class="flex flex-col gap-3">
+          <a href="https://linkedin.com/in/lakshanya-krishna" class="transition-colors text-sm" style="color:var(--text-sec)" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/lakshanya-krishna" class="transition-colors text-sm" style="color:var(--text-sec)" target="_blank" rel="noopener">GitHub</a>
+          <a href="#" class="transition-colors text-sm" style="color:var(--text-sec)">Email</a>
         </div>
+      </div>
     </div>
-  </footer>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs uppercase tracking-widest pt-8" style="border-top:1px solid var(--border);color:var(--text-sec)">
+      <p>© 2025 Lakshanya Krishna.</p>
+      <p>Toronto, Canada</p>
+    </div>
+  </div>
+</footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Mobile Menu Logic
-      const mobileBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileIcon = mobileBtn.querySelector('svg path');
-      let isMenuOpen = false;
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Theme Toggle
+  const toggleTheme = () => {
+    document.documentElement.classList.toggle('light');
+    const isLight = document.documentElement.classList.contains('light');
+    document.querySelectorAll('.theme-toggle').forEach(btn => btn.textContent = isLight ? '☀️' : '🌙');
+    document.querySelector('meta[name="theme-color"]').content = isLight ? '#f5f5f0' : '#080808';
+  };
+  document.querySelectorAll('.theme-toggle').forEach(btn => btn.addEventListener('click', toggleTheme));
 
-      mobileBtn.addEventListener('click', () => {
-        isMenuOpen = !isMenuOpen;
-        if (isMenuOpen) {
-          // Open Menu
-          mobileMenu.classList.remove('hidden');
-          mobileMenu.classList.add('flex');
-          // Delay to allow display:flex to apply before transition
-          setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
-          
-          // Change Icon to X
-          mobileIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-          document.body.style.overflow = 'hidden';
+  // Mobile Menu
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileIcon = mobileBtn.querySelector('svg path');
+  let isMenuOpen = false;
+
+  const closeMobileMenu = () => {
+    isMenuOpen = false;
+    mobileMenu.classList.add('opacity-0');
+    mobileMenu.classList.add('pointer-events-none');
+    setTimeout(() => {
+      mobileMenu.classList.remove('flex');
+    }, 300);
+    mobileIcon.setAttribute('d', 'M3.75 9h16.5m-16.5 6.75h16.5');
+    document.body.style.overflow = '';
+  };
+
+  mobileBtn.addEventListener('click', () => {
+    isMenuOpen = !isMenuOpen;
+    if (isMenuOpen) {
+      mobileMenu.classList.remove('pointer-events-none');
+      mobileMenu.classList.add('flex');
+      setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+      mobileIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+      document.body.style.overflow = 'hidden';
+    } else {
+      closeMobileMenu();
+    }
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  // Scroll Reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-on-scroll-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('[data-animation-on-scroll]').forEach(el => {
+    el.classList.add('animate-on-scroll-hidden');
+    observer.observe(el);
+  });
+
+  // Typing Animation
+  const phrases = [
+    'Java Full Stack Developer',
+    'Spring Boot & React',
+    'AWS Cloud Enthusiast',
+    'Open Source Contributor',
+    'Lifelong Learner'
+  ];
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingEl = document.getElementById('typing-text');
+
+  function typeEffect() {
+    const current = phrases[phraseIndex];
+    if (!isDeleting) {
+      typingEl.textContent = current.substring(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === current.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 2000);
+        return;
+      }
+      setTimeout(typeEffect, 80);
+    } else {
+      typingEl.textContent = current.substring(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(typeEffect, 500);
+        return;
+      }
+      setTimeout(typeEffect, 40);
+    }
+  }
+  typingEl.classList.add('typing-cursor');
+  typeEffect();
+
+  // Project Filtering
+  const filterButtons = document.querySelectorAll('[data-filter]');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => {
+        b.classList.remove('active');
+        b.style.background = '';
+        b.style.color = '';
+      });
+      btn.classList.add('active');
+      btn.style.background = '#FFB7C5';
+      btn.style.color = '#080808';
+
+      const filter = btn.getAttribute('data-filter');
+      projectCards.forEach(card => {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          card.classList.remove('hidden-filter');
         } else {
-          // Close Menu
-          mobileMenu.classList.add('opacity-0');
-          setTimeout(() => {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('flex');
-          }, 300);
-          
-          // Change Icon back
-          mobileIcon.setAttribute('d', 'M3.75 9h16.5m-16.5 6.75h16.5');
-          document.body.style.overflow = '';
+          card.classList.add('hidden-filter');
         }
       });
-
-      // Close menu when clicking a link
-      document.querySelectorAll('.mobile-link').forEach(link => {
-        link.addEventListener('click', () => {
-          isMenuOpen = false;
-          mobileMenu.classList.add('opacity-0');
-          setTimeout(() => {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('flex');
-          }, 300);
-          mobileIcon.setAttribute('d', 'M3.75 9h16.5m-16.5 6.75h16.5');
-          document.body.style.overflow = '';
-        });
-      });
-
-      // Simple Scroll Reveal
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-on-scroll-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('[data-animation-on-scroll]').forEach(el => {
-        el.classList.add('animate-on-scroll-hidden');
-        observer.observe(el);
-      });
     });
-  </script>
-
+  });
+});
+</script>
 
 </body></html>
