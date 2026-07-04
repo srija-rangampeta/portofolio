@@ -269,9 +269,6 @@ tailwind.config = {
 
     <!-- Box 5: Stats -->
     <div data-animation-on-scroll class="p-4 rounded-sm flex flex-col justify-center items-center text-center space-y-2 hover:border-brand-primary/50 transition-colors" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border)">
-       <span class="block text-5xl font-primary" style="color:var(--text)">40<span class="text-brand-primary">+</span></span>
-       <span class="text-xs uppercase tracking-widest" style="color:var(--text-sec)">Commits This Year</span>
-       <div class="w-12 h-px my-4" style="background:var(--border)"></div>
        <span class="block text-2xl font-primary" style="color:var(--text)">Hyderabad</span>
        <span class="text-xs uppercase tracking-widest" style="color:var(--text-sec)">Based</span>
     </div>
@@ -288,12 +285,12 @@ tailwind.config = {
     </div>
   </div>
 
-  <div class="grid grid-cols-1" style="border:1px solid var(--border)">
+  <div class="grid grid-cols-1 md:grid-cols-2" style="border:1px solid var(--border)">
 
     <!-- Project: BrandForge -->
-    <a href="https://smuggling-gloater-falsify.ngrok-free.dev" target="_blank" rel="noopener" class="project-card group block p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)">
+    <a href="https://smuggling-gloater-falsify.ngrok-free.dev" target="_blank" rel="noopener" class="project-card group block border-b md:border-b-0 md:border-r p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)">
       <div class="overflow-hidden rounded-sm mb-8 relative aspect-[16/9] bg-neutral-surface/50 flex items-center justify-center">
-        <span class="text-6xl opacity-20 font-primary">🎨</span>
+        <img src="assets/brandforge-preview.png" alt="BrandForge app preview" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
       </div>
       <div>
@@ -311,6 +308,30 @@ tailwind.config = {
             <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• MongoDB</span>
           </div>
           <span class="text-xs font-semibold uppercase tracking-widest text-brand-primary flex items-center gap-1 group-hover:gap-2 transition-all">Live Demo ↗</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Project: Getto (Figma prototype) -->
+    <a href="https://www.figma.com/proto/XgZ4kVyc3ZGaDP5agatFoW/Task?node-id=0-1&t=hHjhbMZ633ozOEg2-1" target="_blank" rel="noopener" class="project-card group block p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)">
+      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[16/9] bg-neutral-surface/50 flex items-center justify-center">
+        <span class="text-6xl opacity-20 font-primary">🛍️</span>
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+      </div>
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-primary text-3xl group-hover:text-brand-primary transition-colors" style="color:var(--text)">Getto — UI/UX Case Study</h3>
+          <span class="text-xs px-2 py-1 rounded-full" style="border:1px solid var(--border);color:var(--text-sec)">Figma</span>
+        </div>
+        <p style="color:var(--text-sec)" class="font-light">
+          Quick-commerce clothing app UI focused on faster delivery and higher cart value — nearby-store availability for quicker fulfilment and a "complete the look under a budget" upsell flow.
+        </p>
+        <div class="mt-6 flex items-center justify-between flex-wrap gap-4">
+          <div class="flex gap-2 flex-wrap">
+            <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">Figma</span>
+            <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• UI/UX</span>
+          </div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-brand-primary flex items-center gap-1 group-hover:gap-2 transition-all">View Prototype ↗</span>
         </div>
       </div>
     </a>
@@ -389,6 +410,7 @@ tailwind.config = {
     <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
       <div class="flex items-center justify-between mb-4">
         <h3 class="font-primary text-2xl" style="color:var(--text)">Content Writer & Machine Learning Intern</h3>
+        <span class="font-mono text-xs" style="color:var(--text-sec)">Mar 2024 — Jun 2024</span>
       </div>
       <p class="text-sm mb-2 font-semibold text-brand-primary">St. Mary's Software Hub, Hyderabad</p>
       <p style="color:var(--text-sec)" class="font-light leading-relaxed">
