@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(255, 183, 197, 0.3);
+  }
+}
+
+:root {
+  --bg: #080808;
+  --surface: #1a1a1a;
+  --text: #ffffff;
+  --text-sec: #a0a0a0;
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+.light {
+  --bg: #f5f5f0;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --text-sec: #666666;
+  --border: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.animate-on-scroll-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-on-scroll-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.grid-infinite-scroll {
+  position: absolute;
+  width: 200vw;
+  height: 200vh;
+  left: -50%;
+  top: -50%;
+  background-size: 60px 60px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 2px, transparent 2px);
+  transform: perspective(800px) rotateX(20deg) scale(1.2);
+  animation: grid-pan 5s linear infinite;
+  opacity: 0.6;
+}
+
+.light .grid-infinite-scroll {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.08) 2px, transparent 2px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 2px, transparent 2px);
+}
+
+@keyframes grid-pan {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 60px;
+  }
+}
+
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+  border-color: #ffb7c5;
+}
+
+@media (max-width: 767px) {
+  .grid-infinite-scroll {
+    opacity: 0.3;
+  }
+}
