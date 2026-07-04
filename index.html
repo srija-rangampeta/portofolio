@@ -253,7 +253,7 @@ tailwind.config = {
     </div>
 
     <!-- Box 4: CTA -->
-    <div data-animation-on-scroll class="md:col-span-4 bg-brand-primary border border-brand-primary p-6 rounded-sm flex flex-col justify-between group hover:bg-brand-secondary transition-all cursor-pointer relative overflow-hidden">
+    <div data-animation-on-scroll class="md:col-span-7 bg-brand-primary border border-brand-primary p-6 rounded-sm flex flex-col justify-between group hover:bg-brand-secondary transition-all cursor-pointer relative overflow-hidden">
        <div class="absolute -right-12 -top-12 w-48 h-48 bg-white/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
        <div class="relative z-10">
          <span class="inline-block px-3 py-1 bg-black/10 rounded-full text-xs font-bold uppercase tracking-widest text-text-onPrimary mb-4 backdrop-blur-md">● Open to opportunities</span>
@@ -265,12 +265,6 @@ tailwind.config = {
           <svg class="w-12 h-12 text-text-onPrimary transform group-hover:rotate-45 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
        </div>
        <a href="#contact" class="absolute inset-0 z-20"></a>
-    </div>
-
-    <!-- Box 5: Stats -->
-    <div data-animation-on-scroll class="p-4 rounded-sm flex flex-col justify-center items-center text-center space-y-2 hover:border-brand-primary/50 transition-colors" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border)">
-       <span class="block text-2xl font-primary" style="color:var(--text)">Hyderabad</span>
-       <span class="text-xs uppercase tracking-widest" style="color:var(--text-sec)">Based</span>
     </div>
 
   </div>
@@ -288,14 +282,14 @@ tailwind.config = {
   <div class="grid grid-cols-1 md:grid-cols-2" style="border:1px solid var(--border)">
 
     <!-- Project: BrandForge -->
-    <a href="https://smuggling-gloater-falsify.ngrok-free.dev" target="_blank" rel="noopener" class="project-card group block border-b md:border-b-0 md:border-r p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)">
-      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[16/9] bg-neutral-surface/50 flex items-center justify-center">
+    <div class="project-card group block border-b md:border-b-0 md:border-r p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)">
+      <a href="https://smuggling-gloater-falsify.ngrok-free.dev" target="_blank" rel="noopener" class="block overflow-hidden rounded-sm mb-8 relative aspect-[16/9] bg-neutral-surface/50">
         <img src="assets/brandforge-preview.png" alt="BrandForge app preview" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
-      </div>
+        <div class="absolute inset-0 bg-black/20 hover:bg-transparent transition-colors duration-500"></div>
+      </a>
       <div>
         <div class="flex items-center justify-between mb-4">
-          <h3 class="font-primary text-3xl group-hover:text-brand-primary transition-colors" style="color:var(--text)">BrandForge</h3>
+          <h3 class="font-primary text-3xl" style="color:var(--text)">BrandForge</h3>
           <span class="text-xs px-2 py-1 rounded-full" style="border:1px solid var(--border);color:var(--text-sec)">In Progress</span>
         </div>
         <p style="color:var(--text-sec)" class="font-light">
@@ -307,15 +301,18 @@ tailwind.config = {
             <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• AI Integration</span>
             <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• MongoDB</span>
           </div>
-          <span class="text-xs font-semibold uppercase tracking-widest text-brand-primary flex items-center gap-1 group-hover:gap-2 transition-all">Live Demo ↗</span>
+          <div class="flex items-center gap-4">
+            <a href="https://smuggling-gloater-falsify.ngrok-free.dev" target="_blank" rel="noopener" class="text-xs font-semibold uppercase tracking-widest text-brand-primary hover:underline flex items-center gap-1">Live Demo ↗</a>
+            <a href="https://github.com/Lakshanyakrishna" target="_blank" rel="noopener" class="text-xs font-semibold uppercase tracking-widest text-brand-primary hover:underline flex items-center gap-1">GitHub ↗</a>
+          </div>
         </div>
       </div>
-    </a>
+    </div>
 
     <!-- Project: Getto (Figma prototype) -->
     <a href="https://www.figma.com/proto/XgZ4kVyc3ZGaDP5agatFoW/Task?node-id=0-1&t=hHjhbMZ633ozOEg2-1" target="_blank" rel="noopener" class="project-card group block p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)">
       <div class="overflow-hidden rounded-sm mb-8 relative aspect-[16/9] bg-neutral-surface/50 flex items-center justify-center">
-        <span class="text-6xl opacity-20 font-primary">🛍️</span>
+        <img src="assets/getto-preview.svg" alt="Getto clothing app preview" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
       </div>
       <div>
@@ -331,7 +328,7 @@ tailwind.config = {
             <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">Figma</span>
             <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• UI/UX</span>
           </div>
-          <span class="text-xs font-semibold uppercase tracking-widest text-brand-primary flex items-center gap-1 group-hover:gap-2 transition-all">View Prototype ↗</span>
+          <span class="text-xs font-semibold uppercase tracking-widest text-brand-primary flex items-center gap-1 group-hover:gap-2 transition-all">Live Demo ↗</span>
         </div>
       </div>
     </a>
@@ -346,7 +343,7 @@ tailwind.config = {
     <h2 class="font-primary text-5xl md:text-7xl" style="color:var(--text)">Skills & Tools</h2>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
     <!-- Core MERN -->
     <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
       <h3 class="font-primary text-2xl mb-6" style="color:var(--text)">Core (MERN)</h3>
@@ -355,8 +352,19 @@ tailwind.config = {
         <span class="px-4 py-2 rounded-full text-sm border border-gray-400/20 bg-gray-400/10 text-gray-200">Express.js</span>
         <span class="px-4 py-2 rounded-full text-sm border border-cyan-400/20 bg-cyan-400/10 text-cyan-200">React.js</span>
         <span class="px-4 py-2 rounded-full text-sm border border-lime-400/20 bg-lime-400/10 text-lime-200">Node.js</span>
-        <span class="px-4 py-2 rounded-full text-sm border border-yellow-400/20 bg-yellow-400/10 text-yellow-200">JavaScript (ES6+)</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-yellow-400/20 bg-yellow-400/10 text-yellow-200">JavaScript</span>
         <span class="px-4 py-2 rounded-full text-sm border border-pink-400/20 bg-pink-400/10 text-pink-200">REST APIs</span>
+      </div>
+    </div>
+
+    <!-- Frontend -->
+    <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
+      <h3 class="font-primary text-2xl mb-6" style="color:var(--text)">Frontend</h3>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-4 py-2 rounded-full text-sm border border-red-400/20 bg-red-400/10 text-red-200">HTML</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-blue-400/20 bg-blue-400/10 text-blue-200">CSS</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-teal-400/20 bg-teal-400/10 text-teal-200">Responsive Design</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-pink-400/20 bg-pink-400/10 text-pink-200">Figma (UI/UX)</span>
       </div>
     </div>
 
@@ -365,11 +373,8 @@ tailwind.config = {
       <h3 class="font-primary text-2xl mb-6" style="color:var(--text)">Languages & Databases</h3>
       <div class="flex flex-wrap gap-3">
         <span class="px-4 py-2 rounded-full text-sm border border-blue-400/20 bg-blue-400/10 text-blue-200">Python</span>
-        <span class="px-4 py-2 rounded-full text-sm border border-orange-400/20 bg-orange-400/10 text-orange-200">Java</span>
-        <span class="px-4 py-2 rounded-full text-sm border border-indigo-400/20 bg-indigo-400/10 text-indigo-200">C</span>
         <span class="px-4 py-2 rounded-full text-sm border border-teal-400/20 bg-teal-400/10 text-teal-200">MySQL</span>
         <span class="px-4 py-2 rounded-full text-sm border border-purple-400/20 bg-purple-400/10 text-purple-200">PostgreSQL</span>
-        <span class="px-4 py-2 rounded-full text-sm border border-red-400/20 bg-red-400/10 text-red-200">HTML/CSS</span>
       </div>
     </div>
 
@@ -377,12 +382,11 @@ tailwind.config = {
     <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
       <h3 class="font-primary text-2xl mb-6" style="color:var(--text)">Tools & AI</h3>
       <div class="flex flex-wrap gap-3">
-        <span class="px-4 py-2 rounded-full text-sm border border-gray-400/20 bg-gray-400/10 text-gray-200">Git</span>
         <span class="px-4 py-2 rounded-full text-sm border border-gray-400/20 bg-gray-400/10 text-gray-200">GitHub</span>
         <span class="px-4 py-2 rounded-full text-sm border border-blue-400/20 bg-blue-400/10 text-blue-200">VS Code</span>
         <span class="px-4 py-2 rounded-full text-sm border border-cyan-400/20 bg-cyan-400/10 text-cyan-200">Postman</span>
-        <span class="px-4 py-2 rounded-full text-sm border border-pink-400/20 bg-pink-400/10 text-pink-200">Figma</span>
         <span class="px-4 py-2 rounded-full text-sm border border-purple-400/20 bg-purple-400/10 text-purple-200">Prompt Engineering</span>
+        <span class="px-4 py-2 rounded-full text-sm border border-indigo-400/20 bg-indigo-400/10 text-indigo-200">AI-Assisted Development</span>
       </div>
     </div>
   </div>
@@ -403,7 +407,7 @@ tailwind.config = {
       </div>
       <p class="text-sm mb-2 font-semibold text-brand-primary">Fraylon Technologies, Hyderabad (Remote)</p>
       <p style="color:var(--text-sec)" class="font-light leading-relaxed">
-        Develop full-stack (MERN) features for a hackathon management platform and a learning management system (LMS) — React UIs, Express REST APIs, JWT-based role access, and MongoDB data models. Ship work through a GitHub pull-request workflow with code reviews, collaborating with frontend, backend, and content interns on production-oriented deliverables.
+        Developed full-stack (MERN) features for a hackathon management platform and a learning management system (LMS) — React UIs, Express REST APIs, JWT-based role access, and MongoDB data models. Shipped production-oriented deliverables through a GitHub pull-request workflow, conducting code reviews and collaborating with frontend, backend, and content interns.
       </p>
     </div>
 
@@ -432,7 +436,7 @@ tailwind.config = {
           <span class="font-mono text-xs" style="color:var(--text-sec)">2023 — 2027 (Expected)</span>
         </div>
         <p style="color:var(--text-sec)" class="font-light leading-relaxed">
-          CGPA: 8.43 / 10 · No active backlogs
+          CGPA: 8.43 / 10
         </p>
       </div>
       <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
@@ -451,7 +455,7 @@ tailwind.config = {
       </div>
       <div data-animation-on-scroll class="p-6 rounded-sm" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border);backdrop-filter:blur(8px)">
         <h4 class="font-primary text-lg mb-2" style="color:var(--text)">Leadership</h4>
-        <p class="text-sm" style="color:var(--text-sec)">Industrial Representative (IR) & Sports Club Secretary, St. Mary's Engineering College — student volunteer contributing to internal branding and social-media content creation.</p>
+        <p class="text-sm" style="color:var(--text-sec)">Led initiatives as Industrial Representative (IR) and Sports Club Secretary, driving internal branding and social-media content creation for the college.</p>
       </div>
     </div>
   </div>
@@ -493,9 +497,7 @@ tailwind.config = {
         Code is the <br> <span class="text-brand-primary italic">blueprint.</span>
       </h2>
       <div class="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-sm mx-auto lg:mx-0" style="background:color-mix(in srgb, var(--surface) 40%, transparent);border:1px solid var(--border)">
-         <div class="w-full h-full flex items-center justify-center">
-           <span class="text-8xl opacity-30">👩‍💻</span>
-         </div>
+         <img src="assets/profile-photo.png" alt="Lakshanya Krishna" class="w-full h-full object-cover">
          <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
             <p class="text-white font-mono text-sm">Lakshanya Krishna — Hyderabad, India</p>
          </div>

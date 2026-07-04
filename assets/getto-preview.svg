@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#2a1f22"/>
+    </linearGradient>
+    <linearGradient id="garment" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFB7C5"/>
+      <stop offset="100%" stop-color="#ff9eb2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- hanger -->
+  <g stroke="#FFB7C5" stroke-width="4" fill="none" opacity="0.9">
+    <circle cx="400" cy="95" r="10"/>
+    <line x1="400" y1="105" x2="400" y2="125"/>
+    <path d="M 400 125 L 300 175 L 500 175 Z"/>
+  </g>
+
+  <!-- t-shirt -->
+  <path d="M 320 175
+           L 360 155
+           L 400 180
+           L 440 155
+           L 480 175
+           L 480 215
+           L 455 205
+           L 455 320
+           L 345 320
+           L 345 205
+           L 320 215
+           Z"
+        fill="url(#garment)" stroke="#080808" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- second garment, offset -->
+  <path d="M 540 210
+           L 570 195
+           L 600 213
+           L 630 195
+           L 660 210
+           L 660 240
+           L 642 233
+           L 642 320
+           L 558 320
+           L 558 233
+           L 540 240
+           Z"
+        fill="#a0a0a0" opacity="0.35" stroke="#080808" stroke-width="2" stroke-linejoin="round"/>
+
+  <path d="M 140 225
+           L 170 210
+           L 200 228
+           L 230 210
+           L 260 225
+           L 260 255
+           L 242 248
+           L 242 320
+           L 158 320
+           L 158 248
+           L 140 255
+           Z"
+        fill="#a0a0a0" opacity="0.35" stroke="#080808" stroke-width="2" stroke-linejoin="round"/>
+
+  <text x="400" y="390" font-family="Georgia, 'Playfair Display', serif" font-style="italic" font-size="30" fill="#ffffff" text-anchor="middle" opacity="0.85">Getto</text>
+</svg>
