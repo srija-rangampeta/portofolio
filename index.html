@@ -87,15 +87,8 @@
     .theme-toggle:hover {
       border-color: #FFB7C5;
     }
-    .filter-btn.active {
-      background: #FFB7C5;
-      color: #080808;
-    }
     .project-card {
       transition: opacity 0.4s, transform 0.4s;
-    }
-    .project-card.hidden-filter {
-      display: none;
     }
     @media (max-width: 767px) {
       .grid-infinite-scroll {
@@ -293,18 +286,12 @@ tailwind.config = {
       <span class="text-brand-primary text-sm uppercase tracking-widest mb-4 block">Portfolio</span>
       <h2 class="font-primary text-5xl md:text-7xl" style="color:var(--text)">Selected Projects</h2>
     </div>
-    <div class="flex flex-wrap gap-2">
-      <button data-filter="all" class="filter-btn active text-xs uppercase tracking-widest px-4 py-2 rounded-full border transition-all" style="border-color:var(--border);color:var(--text-sec)">All</button>
-      <button data-filter="fullstack" class="filter-btn text-xs uppercase tracking-widest px-4 py-2 rounded-full border transition-all" style="border-color:var(--border);color:var(--text-sec)">Full Stack</button>
-      <button data-filter="ai" class="filter-btn text-xs uppercase tracking-widest px-4 py-2 rounded-full border transition-all" style="border-color:var(--border);color:var(--text-sec)">AI</button>
-      <button data-filter="design" class="filter-btn text-xs uppercase tracking-widest px-4 py-2 rounded-full border transition-all" style="border-color:var(--border);color:var(--text-sec)">Design</button>
-    </div>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2" style="border:1px solid var(--border)">
 
     <!-- Project 1: BrandForge -->
-    <a href="https://github.com/Lakshanyakrishna" target="_blank" rel="noopener" class="project-card group block border-b md:border-b-0 md:border-r p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)" data-category="ai">
+    <a href="https://github.com/Lakshanyakrishna" target="_blank" rel="noopener" class="project-card group block border-b md:border-b-0 md:border-r p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)">
       <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3] bg-neutral-surface/50 flex items-center justify-center">
         <span class="text-6xl opacity-20 font-primary">🎨</span>
         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -326,7 +313,7 @@ tailwind.config = {
     </a>
 
     <!-- Project 2: LMS -->
-    <a href="https://github.com/Lakshanyakrishna" target="_blank" rel="noopener" class="project-card group block border-b p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)" data-category="fullstack">
+    <a href="https://github.com/Lakshanyakrishna" target="_blank" rel="noopener" class="project-card group block border-b p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)">
       <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3] bg-neutral-surface/50 flex items-center justify-center">
         <span class="text-6xl opacity-20 font-primary">🎓</span>
         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -347,29 +334,8 @@ tailwind.config = {
       </div>
     </a>
 
-    <!-- Project 3: Getto (Design) -->
-    <a href="#" class="project-card group block md:border-r p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)" data-category="design">
-      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3] bg-neutral-surface/50 flex items-center justify-center">
-        <span class="text-6xl opacity-20 font-primary">🛍️</span>
-        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
-      </div>
-      <div>
-        <div class="flex items-center justify-between mb-4">
-          <h3 class="font-primary text-3xl group-hover:text-brand-primary transition-colors" style="color:var(--text)">Getto — UI/UX Case Study</h3>
-          <span class="text-xs px-2 py-1 rounded-full" style="border:1px solid var(--border);color:var(--text-sec)">Figma</span>
-        </div>
-        <p style="color:var(--text-sec)" class="font-light">
-          Quick-commerce clothing app UI focused on faster delivery and higher cart value — nearby-store availability for quicker fulfilment and a "complete the look under a budget" upsell flow.
-        </p>
-        <div class="mt-6 flex gap-2 flex-wrap">
-          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">Figma</span>
-          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• UI/UX</span>
-        </div>
-      </div>
-    </a>
-
-    <!-- Project 4: Hackathon Platform -->
-    <a href="https://github.com/Lakshanyakrishna" target="_blank" rel="noopener" class="project-card group block p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)" data-category="fullstack">
+    <!-- Project 3: Hackathon Platform -->
+    <a href="https://github.com/Lakshanyakrishna" target="_blank" rel="noopener" class="project-card group block md:border-r p-8 lg:p-12 transition-colors duration-500" style="border-color:var(--border)">
       <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3] bg-neutral-surface/50 flex items-center justify-center">
         <span class="text-6xl opacity-20 font-primary">🏆</span>
         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -389,6 +355,27 @@ tailwind.config = {
         </div>
       </div>
     </a>
+
+    <!-- Project 4: Getto (Design case study, no live link) -->
+    <div class="project-card block p-8 lg:p-12" style="border-color:var(--border)">
+      <div class="overflow-hidden rounded-sm mb-8 relative aspect-[4/3] bg-neutral-surface/50 flex items-center justify-center">
+        <span class="text-6xl opacity-20 font-primary">🛍️</span>
+        <div class="absolute inset-0 bg-black/20"></div>
+      </div>
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-primary text-3xl" style="color:var(--text)">Getto — UI/UX Case Study</h3>
+          <span class="text-xs px-2 py-1 rounded-full" style="border:1px solid var(--border);color:var(--text-sec)">Figma</span>
+        </div>
+        <p style="color:var(--text-sec)" class="font-light">
+          Quick-commerce clothing app UI focused on faster delivery and higher cart value — nearby-store availability for quicker fulfilment and a "complete the look under a budget" upsell flow.
+        </p>
+        <div class="mt-6 flex gap-2 flex-wrap">
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">Figma</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary/80">• UI/UX</span>
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>
@@ -834,32 +821,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   typingEl.classList.add('typing-cursor');
   typeEffect();
-
-  // Project Filtering
-  const filterButtons = document.querySelectorAll('[data-filter]');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach(b => {
-        b.classList.remove('active');
-        b.style.background = '';
-        b.style.color = '';
-      });
-      btn.classList.add('active');
-      btn.style.background = '#FFB7C5';
-      btn.style.color = '#080808';
-
-      const filter = btn.getAttribute('data-filter');
-      projectCards.forEach(card => {
-        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-          card.classList.remove('hidden-filter');
-        } else {
-          card.classList.add('hidden-filter');
-        }
-      });
-    });
-  });
 });
 </script>
 
